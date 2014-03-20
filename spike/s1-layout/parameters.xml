@@ -1,0 +1,6 @@
+﻿<parameters>
+  <parameter name="IIS Web Application Name" defaultValue="Default Web Site" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\GIT\\MobNation\\spike\\s1-layout" tags="IisApp" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\GIT\\MobNation\\spike\\s1-layout" tags="IisApp" />
+  </parameter>
+</parameters>
