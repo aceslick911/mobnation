@@ -1,1 +1,10 @@
 spike/s1-layout/Bin/
+V1/mobnation/packages
+V1/mobnation/mobnation.Tests/bin
+V1/mobnation/mobnation/obj
+V1/mobnation/mobnation/bin
+V1/mobnation/EmailEntities/obj
+V1/mobnation/mobnation.Tests/obj
+V1/mobnation/EmailService/obj
+V1/mobnation/EmailService/bin
+assets/images/Source/*.idlk

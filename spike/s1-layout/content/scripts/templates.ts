@@ -18,5 +18,9 @@ function ensureTemplates(list) {
                                                                                             
 
 $(function() {
-    ensureTemplates(["home/homeTemplate","profile/profileTemplate"]);
+    ensureTemplates([
+        "home/homeTemplate",
+        "home/footerTemplate",
+        "profile/profileTemplate",
+    ]);
 });

@@ -1,0 +1,95 @@
+﻿
+
+//Colours:
+
+@col-mn-blue :rgb(94,187,228);
+@col-mn-grey: rgb(159,157,157);
+@col-mn-light-grey: rgb(235,235,235);
+@col-mn-dark-grey:rgb(56,56,56);
+
+
+@import "colours.less";
+
+//Common styles
+html, body {
+    font-family:Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+     height: 100%;
+}
+
+//Page specific styles
+.mn-home {
+
+    
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px;
+
+    .header {
+        display: block;
+        min-height: 100px;
+        text-align:center;
+        img{
+            float:left;
+        }
+        .search {
+            display: inline-block;
+            width:50%;
+            margin-top:26px;
+
+            input {
+               width:96%;
+                margin-right: -35px;
+                font-size: 32px;
+                border:2px solid @col-mn-dark-grey;
+                padding: 1px 4px;
+            }
+
+            .fa-search {
+                color:@col-mn-dark-grey;
+                font-size:30px;
+                &:hover{
+                    color:@col-mn-blue;
+                }
+            }
+        }
+    }
+    .body{
+        .cards-list{
+            .profile-card{
+                display:inline-block;
+                
+                width:300px; 
+                height:110px;
+
+                border:1px solid @col-mn-dark-grey;
+
+                .thumbnail{
+                    position:absolute;
+                    left:5px;
+                    top:5px;
+                    background-image: url(/content/images/mobnation-hand-medium.png);
+                    height:100px;
+                    width:100px;
+                    
+                }
+                .top-section{
+
+                }
+                .bottom-section{
+
+                }
+            }
+        }
+    }
+    .footer, .footer-push{
+        border-top:1px solid black;
+            height: 142px;
+
+    }
+}
+
+
+.mn-profile{
+
+}

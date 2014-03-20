@@ -3,7 +3,6 @@
 //setup crossroads
 crossroads.addRoute('', function () {
     rootVM.activeTemplate('home/homeTemplate');
-    alert("home");
 });
 crossroads.addRoute('profile/{id}', function (id) {
     rootVM.activeTemplate('profile/profileTemplate');

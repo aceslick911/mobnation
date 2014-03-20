@@ -1,16 +1,36 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
+        <!-- 3rd Party Stylesheets -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        
+        <!-- Site Stylesheets -->
+        
         <link href="content/styles/styles.css" rel="stylesheet" />
+        
+        <!-- JS Libaries -->
+
         <script src="Scripts/jquery-2.1.0.js"></script>
         <script src="Scripts/knockout-latest.debug.js"></script>
         <script src="Scripts/signals.js"></script>
         <script src="Scripts/hasher.js"></script>
         <script src="Scripts/crossroads.js"></script>
+        
+        
+        <!-- View Models -->
+        <script src="content/scripts/homevm.js"></script>
+        <script src="content/scripts/profilevm.js"></script>
+        
+        
+        <!-- Root VM and Routing -->
         <script src="content/scripts/rootVM.js"></script>
         <script src="content/scripts/routing.js"></script>
         
+        
+        <!-- HTML Templates -->
         <script src="content/scripts/templates.js"></script>
+        
+        <!-- Tracking Analytics -->
         <script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -22,12 +42,11 @@
             ga('create', 'UA-25077068-3', 'mobnation.org');
             ga('send', 'pageview');
 
-</script>
+        </script>
         <title>MobNation.org</title>
     </head>
 <body>
-    <img  src="/content/images/mobnation-logo-medium.png" alt="mobnation.org" />
-    <div id="layout-root" data-bind="template: { name: rootVM.activeTemplate(), data: rootVM }"></div>
+    <div id="wrapper" data-bind="template: { name: rootVM.activeTemplate(), data: rootVM }"></div>
 </body>
 </html>
 
