@@ -34,9 +34,8 @@ class RootVM {
         crossroads.addRoute('', () => {
             rootVM.activeTemplate('home/homeTemplate');
         });
-        crossroads.addRoute('profile/{id}', (id: any) => {
+        crossroads.addRoute('{id}', (id: any) => {
             rootVM.activeTemplate('profile/profileTemplate');
-            alert("Profile:" + id);
         });
 
         //crossroads.routed.add(console.log, console); //log all routes
@@ -50,7 +49,7 @@ class RootVM {
         hasher.init(); //start listening for history change
 
         //update URL fragment generating new history record
-        hasher.setHash('');
+        //hasher.setHash('');
 
     }
 

@@ -6,14 +6,23 @@
     <div class="body">
         <div class="cards-list">
             <div class="search-results">
-                <div class="profile-card">
-                    <div class="thumbnail"></div>
+                 <div class="profile-card create">
                     <div class="top-section dark">
-                        
+                        <div class="card-title"><input type="text"/ placeholder="New Profile Name"></div>
+                    </div>
+                     <div class="bottom-section white">
+                         <button class="mn-button">Create New Profile</button>
+                     </div>
+                    <div class="thumbnail"><i class="fa fa-plus"></i></div>
+                </div>
+                <div class="profile-card">
+                    <div class="top-section dark">
+                        <div class="card-title">Monash Kickboxing</div>
                     </div>
                     <div class="bottom-section white">
-                        Monash Kickboxing
+                         <button class="mn-button" data-bind="click: function () { hasher.setHash('MonashKickboxing'); }">Manage Profile</button>
                     </div>
+                    <div class="thumbnail"></div>
                 </div>
             </div>
             <div class="new-card"></div>

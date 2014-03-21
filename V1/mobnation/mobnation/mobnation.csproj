@@ -169,6 +169,8 @@
     <Content Include="Content\images\mobnation-logo-medium.png" />
     <Content Include="Content\images\mobnation-logo-small.png" />
     <Content Include="Content\images\mobnation-logo.png" />
+    <Content Include="Content\images\mobnation-v1-profile-page-bg.png" />
+    <Content Include="Content\images\mobnation-white-hand.png" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
     <TypeScriptCompile Include="Content\scripts\rootVM.ts" />

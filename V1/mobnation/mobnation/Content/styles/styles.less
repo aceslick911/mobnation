@@ -2,24 +2,32 @@
 
 //Colours:
 
-@col-mn-blue :rgb(94,187,228);
+@col-mn-blue: rgb(94,187,228);
 @col-mn-grey: rgb(159,157,157);
 @col-mn-light-grey: rgb(235,235,235);
-@col-mn-dark-grey:rgb(56,56,56);
+@col-mn-dark-grey: rgb(56,56,56);
 
+.mn-button {
+    background-color: darken( @col-mn-blue, 20%);
+    border: 1px solid white;
+    padding: 2px 6px;
+    color: white;
+    font-size: 11px;
+    border-radius: 3px;
 
-@import "colours.less";
+    &:hover {
+        background-color: @col-mn-blue;
+    }
+}
 
 //Common styles
 html, body {
-    font-family:Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
-     height: 100%;
+    font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    height: 100%;
 }
 
 //Page specific styles
 .mn-home {
-
-    
     min-height: 100%;
     height: auto !important;
     height: 100%;
@@ -28,68 +36,301 @@ html, body {
     .header {
         display: block;
         min-height: 100px;
-        text-align:center;
-        img{
-            float:left;
+        text-align: center;
+
+        img {
+            float: left;
         }
+
         .search {
             display: inline-block;
-            width:50%;
-            margin-top:26px;
+            width: 50%;
+            margin-top: 26px;
 
             input {
-               width:96%;
-                margin-right: -35px;
-                font-size: 32px;
-                border:2px solid @col-mn-dark-grey;
+                width: 96%;
+                margin-right: -25px;
+                font-size: 23px;
+                border: 1px solid @col-mn-dark-grey;
                 padding: 1px 4px;
             }
 
             .fa-search {
-                color:@col-mn-dark-grey;
-                font-size:30px;
-                &:hover{
-                    color:@col-mn-blue;
+                color: @col-mn-dark-grey;
+                font-size: 20px;
+
+                &:hover {
+                    color: @col-mn-blue;
                 }
             }
         }
     }
-    .body{
-        .cards-list{
-            .profile-card{
-                display:inline-block;
-                
-                width:300px; 
-                height:110px;
 
-                border:1px solid @col-mn-dark-grey;
+    .body {
+        .cards-list {
+            .profile-card {
 
-                .thumbnail{
-                    position:absolute;
-                    left:5px;
-                    top:5px;
+                &.create {
+                    border: 2px dotted @col-mn-blue;
+                    cursor: default !important;
+                    outline: none !important;
+
+                    &:hover {
+                        box-shadow: 0px 0px 5px yellow;
+                    }
+
+                    input {
+                        outline: 1px solid @col-mn-dark-grey;
+                        background: transparent;
+                        width: 180px;
+                        padding: 2px 5px;
+
+                        &:hover {
+                            background: rgba(255, 255, 255, 0.18);
+                        }
+
+                        border: none;
+
+                        &::-webkit-input-placeholder {
+                            color: black;
+                        }
+
+                        &:-moz-placeholder {
+                            color: black;
+                        }
+
+                        &::-moz-placeholder {
+                            color: black;
+                        }
+
+                        &:-ms-input-placeholder {
+                            color: black;
+                        }
+                    }
+
+                    .dark {
+                        //background-color: lighten(@col-mn-dark-grey, 20%);
+                        color: black;
+                    }
+
+                    .white {
+                        background-color: lighten(@col-mn-light-grey, 20%);
+                        color: black;
+                    }
+
+                    .card-title {
+                        bottom: 2px;
+                    }
+                }
+
+                margin: 5px;
+                position: relative;
+                display: inline-block;
+                width: 300px;
+                height: 110px;
+                border: 1px solid @col-mn-dark-grey;
+                overflow: hidden;
+                border-radius: 3px;
+
+                &:hover {
+                    outline: 2px solid @col-mn-blue;
+                    cursor: pointer;
+                }
+
+                .thumbnail {
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
                     background-image: url(/content/images/mobnation-hand-medium.png);
-                    height:100px;
-                    width:100px;
-                    
-                }
-                .top-section{
+                    background-repeat: no-repeat;
+                    background-position: 30px 20px;
+                    height: 100px;
+                    width: 100px;
 
+                    i {
+                        font-size: 35px;
+                        color: white;
+                        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.61);
+                        margin-left: 33px;
+                        margin-top: 30px;
+                    }
                 }
-                .bottom-section{
 
+                .dark {
+                    //background-color: @col-mn-dark-grey;
+                    background-image: url('/Content/images/mobnation-v1-profile-page-bg.png?');
+                    color: black;
+                }
+
+                .white {
+                    background-color: @col-mn-light-grey;
+                    color: black;
+                }
+
+                .top-section {
+                    height: 55px;
+                    padding-left: 110px;
+                    position: relative;
+                }
+
+                .bottom-section {
+                    height: 55px;
+                    padding-left: 110px;
+                    position: relative;
+                    text-align: center;
+
+                    .mn-button {
+                        margin-top: 15px;
+                    }
+                }
+
+                .card-title {
+                    position: absolute;
+                    bottom: 0px;
                 }
             }
         }
     }
-    .footer, .footer-push{
-        border-top:1px solid black;
-            height: 142px;
 
+    .footer {
+        border-top: 1px solid black;
+        height: 142px;
     }
 }
 
 
-.mn-profile{
+.mn-profile {
+    max-width: 950px;
+    margin: auto;
+    position: relative;
 
+    .header {
+        background-image: url('/Content/images/mobnation-v1-profile-page-bg.png?');
+        background-repeat: repeat-x;
+        padding-top: 70px;
+
+        .thumbnail {
+            height: 120px;
+            width: 120px;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+        }
+        
+                .mobnation-button{
+                    position:absolute;
+                    right:5px;
+                    top:5px;
+                }
+        .profile-headers {
+            background-color: white;
+            margin-top: -5px;
+            border: 1px solid lighten(@col-mn-grey, 20%);
+            display: block;
+
+            .title, .sub-title {
+                margin-left: 130px;
+            }
+
+            .title {
+                font-size: 23px;
+            }
+
+            .sub-title {
+                font-size: 20px;
+            }
+
+            .head-container {
+                border: 1px solid lighten(@col-mn-grey, 20%);
+                background-color: @col-mn-light-grey;
+                padding: 5px;
+                display: inline-block;
+                height: 110px;
+                min-width: 200px;
+                margin: 5px;
+                position: relative;
+
+                .thumbnail {
+                    height: 90px;
+                    width: 90px;
+                    background-color: white;
+                    border: 1px solid lighten(@col-mn-grey, 20%);
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
+
+                    .mn-caption {
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                        right: 0px;
+                        text-align: center;
+                    }
+                }
+
+
+                .details {
+                    padding-left: 100px;
+                    display: block;
+                    overflow: hidden;
+                    height: 100px;
+                }
+
+                &.contact {
+                    max-width: 350px;
+                }
+
+                &.about {
+                    max-width: 574px;
+                }
+
+                .more-toggle {
+                    display: none; //Must be a child of overflow class
+                    position: absolute;
+                    bottom: 5px;
+                    right: 5px;
+                    width: 50px;
+                    height: 23px;
+                    background-color: white;
+                    border: 1px solid lighten(@col-mn-grey, 20%);
+                    font-size: 12px;
+                    cursor:pointer;
+
+                    &:after {
+                        content: 'More..';
+                    }
+
+                    padding: 3px;
+
+                    &:hover {
+                        color: @col-mn-blue;
+                    }
+                }
+
+                .edit-toggle {
+                    display: none; //Must be a child of editable
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    cursor:pointer;
+
+                    &:hover {
+                        color: @col-mn-blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.overflowed {
+    .more-toggle {
+        display: block !important;
+    }
+}
+
+.editable {
+    .edit-toggle {
+        display: block !important;
+    }
 }
