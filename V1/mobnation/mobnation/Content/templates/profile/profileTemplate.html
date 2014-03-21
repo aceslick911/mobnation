@@ -1,20 +1,25 @@
 ﻿<div class="mn-profile editable">
     <div class="header">
-        <div class="thumbnail"></div>
-        <div class="mobnation-button">
-            <img src="Content/images/mobnation-white-hand.png" alt="" />
-        </div>
+        <div class="thumbnail">
+            <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/case-monKickboxing-logo-large.png" /></div>
+        <div class="mobnation-button" data-bind="click: function () { hasher.setHash(''); }"></div>
         <div class="profile-headers">
             <div class="title">Monash Kickboxing</div>
             <div class="sub-title">Monash University Kickboxing Club</div>
             <div class="head-container contact">
-                <div class="thumbnail"><div class="mn-caption">Contact</div></div>
+                <div class="thumbnail">
+                    <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/kacey-image.jpg" />
+                    <div class="mn-caption">Contact</div>
+                </div>
                 <div class="details">Kacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongChongKacey ChongChongKacey ChongChongKacey ChongChongKacey Chong</div>
                 <div class="more-toggle"></div>
                 <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
             </div>
             <div class="head-container about overflowed">
-                <div class="thumbnail"><div class="mn-caption">About</div></div>
+                <div class="thumbnail">
+                    <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/class-image.jpg" />
+                    <div class="mn-caption">About</div>
+                </div>
                 <div class="details">Monash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonash University Kickboxing Club</div>
                 <div class="more-toggle"></div>
                 <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
@@ -22,6 +27,49 @@
         </div>
     </div>
     <div class="body">
-        
+        <div class="products-list">
+            <div class="heading">Products</div>
+            <div class="product-container">
+
+                <div class="product-card create">
+                    <div class="left-section">
+                        <div class="product-type">
+                            <input type="text" placeholder="Product Type"></div>
+                        <div class="product-title">
+                            <input type="text" placeholder="Product Name"></div>
+                        <div class="product-desc">
+                            <input type="text" placeholder="Product Description"></div>
+                    </div>
+                    <div class="right-section">
+                        <div class="product-price">
+                            <input type="text" placeholder="Price"></div>
+                        <button class="mn-button">Create New Product</button>
+                        <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="product-card">
+                    <div class="left-section">
+                        <div class="product-type">Special Offer</div>
+                        <div class="product-title">7-Day Free Trial</div>
+                        <div class="product-desc">Free 7-Day for eligable new members of Monash Kickboxing</div>
+                        <div class="more-toggle"></div>
+                    </div>
+                    <div class="right-section">
+                        <div class="product-price">Free</div>
+                        <button class="mn-button">Add to Receipt</button>
+                        <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+                    </div>
+                    <div class="banner-text">
+                        <div class="number">2</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
+    <div class="footer" data-bind="template: { name: 'home/footerTemplate' }"></div>
 </div>

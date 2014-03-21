@@ -166,6 +166,7 @@
     <Content Include="Content\images\mobnation-hand-medium.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\images\mobnation-hand-sprites.png" />
     <Content Include="Content\images\mobnation-logo-medium.png" />
     <Content Include="Content\images\mobnation-logo-small.png" />
     <Content Include="Content\images\mobnation-logo.png" />
