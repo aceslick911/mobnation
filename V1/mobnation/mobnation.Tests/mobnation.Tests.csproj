@@ -127,6 +127,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EmailEntities\MobnationEntities.csproj">
+      <Project>{a691eb31-60aa-4031-bd5f-3d50baef7f54}</Project>
+      <Name>MobnationEntities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\mobnation\mobnation.csproj">
       <Project>{5BDA6DBE-F3B4-4B94-A502-FB0DF38F588B}</Project>
       <Name>mobnation</Name>

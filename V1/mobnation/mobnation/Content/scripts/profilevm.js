@@ -23,14 +23,14 @@ var ReceiptVM = (function () {
         this.totalQty = ko.computed(function () {
             var val = 0;
             _.forEach(_this.items(), function (item) {
-                val = val + item.qty();
+                val = Number(val + item.qty());
             });
             return val;
         });
         this.totalCost = ko.computed(function () {
             var val = 0;
             _.forEach(_this.items(), function (item) {
-                val = val + item.cost();
+                val = Number(val + item.cost());
             });
             return val;
         });
@@ -41,9 +41,44 @@ var ReceiptVM = (function () {
         this.isName("");
         this.sigData("");
         this.items([]);
+        this.receiptExpanded(false);
+        this.receiptActive(false);
+    };
+
+    ReceiptVM.prototype.receiptData = function () {
+        return {
+            items: _.map(this.items(), function (item) {
+                return {
+                    name: item.name,
+                    qty: item.qty(),
+                    price: item.price,
+                    cost: item.cost()
+                };
+            }),
+            recName: this.recName(),
+            recEmail: this.recEmail(),
+            isName: this.isName(),
+            isSig: this.sigData()
+        };
     };
 
     ReceiptVM.prototype.sendReceipt = function () {
+        var _this = this;
+        $.ajax({
+            url: "/api/values",
+            cache: false,
+            type: 'POST',
+            data: JSON.stringify(this.receiptData()),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (response) {
+                alert("Done!");
+                _this.clearReceipt();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Error sending receipt");
+            }
+        });
     };
     return ReceiptVM;
 })();
@@ -59,5 +94,11 @@ var receiptItem = (function () {
             return _this.qty() * _this.price;
         });
     }
+    receiptItem.prototype.minusOne = function () {
+        this.qty(Math.max(1, Number(this.qty() - 1)));
+    };
+    receiptItem.prototype.plusOne = function () {
+        this.qty(Number(this.qty() + 1));
+    };
     return receiptItem;
 })();

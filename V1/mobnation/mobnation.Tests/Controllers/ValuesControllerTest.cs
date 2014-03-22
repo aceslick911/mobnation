@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using EmailEntities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using mobnation;
 using mobnation.Controllers;
@@ -49,7 +50,7 @@ namespace mobnation.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Act
-            controller.Post("value");
+            controller.Post(new ReceiptData());
 
             // Assert
         }

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mobnation.Tests", "mobnatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{2250C7C3-1CD1-4133-82E2-17049B5DDBC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailEntities", "EmailEntities\EmailEntities.csproj", "{A691EB31-60AA-4031-BD5F-3D50BAEF7F54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobnationEntities", "EmailEntities\MobnationEntities.csproj", "{A691EB31-60AA-4031-BD5F-3D50BAEF7F54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

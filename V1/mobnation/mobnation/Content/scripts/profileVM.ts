@@ -38,14 +38,14 @@ class ReceiptVM {
         this.totalQty = ko.computed(() => {
             var val = 0;
             _.forEach(this.items(), (item: receiptItem) => {
-                val = val + item.qty();
+                val = Number(val + item.qty());
             });
             return val;
         });
         this.totalCost = ko.computed(() => {
             var val = 0;
             _.forEach(this.items(), (item: receiptItem) => {
-                val = val + item.cost();
+                val = Number(val + item.cost());
             });
             return val;
         });
@@ -57,9 +57,47 @@ class ReceiptVM {
         this.isName("");
         this.sigData("");
         this.items([]);
+        this.receiptExpanded(false);
+        this.receiptActive(false);
+    }
+
+    receiptData() {
+        return {
+            items: _.map(this.items(), (item: receiptItem) => {
+                return {
+                    name: item.name,
+                    qty: item.qty(),
+                    price: item.price,
+                    cost: item.cost()
+                };
+            } ),
+            recName: this.recName(),
+            recEmail: this.recEmail(),
+            isName: this.isName(),
+            isSig: this.sigData()
+        };
     }
 
     sendReceipt() {
+
+        $.ajax({
+            url: "/api/values",
+            cache: false,
+            type: 'POST',
+            data: JSON.stringify(this.receiptData()),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success:  (response)=> {
+                alert("Done!");
+                this.clearReceipt();
+            },
+            error:  (xhr, ajaxOptions, thrownError)=> {
+
+                alert("Error sending receipt");
+            }
+        });
+
+
     }
 }
 
@@ -78,6 +116,14 @@ class receiptItem {
         this.cost = ko.computed(() => {
             return this.qty() * this.price;
         });
+    }
+
+    minusOne() {
+        this.qty(Math.max(1, Number(this.qty() - 1)));
+    }
+    plusOne() {
+        this.qty(Number(this.qty() + 1));
+
     }
 
 }

@@ -32,7 +32,7 @@
             <div class="header">New Receipt</div>
             <div class="items">
                 <label>5 Items</label>
-                <button class="mn-button"><i class="fa fa-trash-o"></i>Cancel Receipt</button>
+                <button class="mn-button" data-bind="click: clearReceipt"><i class="fa fa-trash-o"></i>Cancel Receipt</button>
             </div>
             <div class="summary">
                 <div class="totals"></div>
@@ -52,7 +52,11 @@
                 <div class="items" data-bind="foreach: items()">
                     <div class="product">
                         <div class="product-name" data-bind="text: name"></div>
-                        <div class="product-qty" data-bind="text: qty"></div>
+                        <div class="product-qty">
+                            <div class="mn-button" data-bind="click: minusOne"><i class="fa fa-minus"></i></div>
+                            <input type="text" placeholder="Name" data-bind="value: qty, valueUpdate: 'keyup'">
+                            <div class="mn-button" data-bind="click: plusOne"><i class="fa fa-plus"></i></div>
+                        </div>
                         <div class="product-price" data-bind="text: '$' + price"></div>
                         <div class="product-cost" data-bind="text: '$' + cost()"></div>
                     </div>
@@ -61,9 +65,9 @@
                 <div class="separator"></div>
                 <div class="totals">
                     <div class="product-name">Total</div>
-                    <div class="product-qty" data-bind="text:totalQty()"></div>
+                    <div class="product-qty" data-bind="text: totalQty()"></div>
                     <div class="product-price"></div>
-                    <div class="product-cost" data-bind="text:'$'+totalCost()"></div>
+                    <div class="product-cost" data-bind="text: '$' + totalCost()"></div>
                 </div>
 
                 <div class="separator"></div>
@@ -71,18 +75,18 @@
                     <label>Recepient</label>
                     <div class="re-name">
                         <label>Name</label>
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Name" data-bind="value: recName, valueUpdate: 'keyup'">
                     </div>
                     <div class="re-email">
                         <label>E-Mail Address</label>
-                        <input type="text" placeholder="E-Mail">
+                        <input type="text" placeholder="E-Mail" data-bind="value: recEmail, valueUpdate: 'keyup'">
                     </div>
-                    
-            <div class="separator"></div>
+
+                    <div class="separator"></div>
                     <label>Issuer</label>
                     <div class="is-name">
                         <label>Name</label>
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Name" data-bind="value: isName, valueUpdate: 'keyup'">
                     </div>
                     <div class="is-sig" data-bind="signaturePad: sigData">
                         <label>Sign below with your mouse, finger or pen</label>
@@ -95,7 +99,9 @@
 
                     </div>
                 </div>
-                <div class="mn-button" data-bind="click: sendReceipt"><i class="fa fa-envelope"></i>Send Receipts</div>
+                <div class="submit">
+                    <div class="mn-button" data-bind="click: sendReceipt"><i class="fa fa-envelope"></i>Send Receipts</div>
+                </div>
             </div>
         </div>
 

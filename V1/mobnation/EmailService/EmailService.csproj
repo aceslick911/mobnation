@@ -57,9 +57,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmailEntities\EmailEntities.csproj">
+    <ProjectReference Include="..\EmailEntities\MobnationEntities.csproj">
       <Project>{a691eb31-60aa-4031-bd5f-3d50baef7f54}</Project>
-      <Name>EmailEntities</Name>
+      <Name>MobnationEntities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

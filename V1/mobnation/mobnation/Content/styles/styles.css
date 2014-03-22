@@ -26,6 +26,12 @@ body {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .mn-button:hover {
   background-color: #5ebbe4;
@@ -331,6 +337,17 @@ body {
 .mn-profile .body > .receipt .details {
   text-align: left;
 }
+.mn-profile .body > .receipt .details .submit {
+  text-align: center;
+}
+.mn-profile .body > .receipt .details .submit .mn-button {
+  background-color: #5ee4bb;
+  color: black;
+  font-size: 15px;
+}
+.mn-profile .body > .receipt .details .submit .mn-button:hover {
+  background-color: #8aebcd;
+}
 .mn-profile .body > .receipt .details .product-price,
 .mn-profile .body > .receipt .details .product-cost {
   text-align: right;
@@ -350,9 +367,26 @@ body {
 .mn-profile .body > .receipt .details .totals .product-cost {
   text-align: right;
 }
+.mn-profile .body > .receipt .details input {
+  display: block;
+  max-width: 250px;
+  width: 100%;
+}
 .mn-profile .body > .receipt .details .items .product div {
   display: inline-block;
   min-width: 20%;
+}
+.mn-profile .body > .receipt .details .items .product input {
+  width: 50px;
+}
+.mn-profile .body > .receipt .details .items input {
+  display: inline-block;
+}
+.mn-profile .body > .receipt .details .items .mn-button {
+  min-width: initial !important;
+}
+.mn-profile .body > .receipt .details .items .mn-button i {
+  margin-right: 0px;
 }
 .mn-profile .body > .receipt .details .info > div {
   margin-left: 10px;

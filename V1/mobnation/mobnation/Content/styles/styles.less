@@ -7,6 +7,7 @@
 @col-mn-light-grey: rgb(235,235,235);
 @col-mn-dark-grey: rgb(56,56,56);
 @col-mn-red: #ff6c6c;
+@col-mn-green: rgb(94,228,187);
 
 #layout-root {
 }
@@ -46,6 +47,12 @@ html, body {
     color: white;
     font-size: 11px;
     .borderRadius(3px);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     &:hover {
         background-color: @col-mn-blue;
@@ -385,10 +392,10 @@ html, body {
             padding: 10px;
             text-align: center;
 
-            .separator{
-                background-color:white;
-                height:5px;
-                margin:5px 0px;
+            .separator {
+                background-color: white;
+                height: 5px;
+                margin: 5px 0px;
             }
 
             >.header {
@@ -420,12 +427,23 @@ html, body {
             .details {
                 text-align: left;
 
+                .submit{
+                    text-align:center;
+                    .mn-button{
+                        background-color:@col-mn-green;
+                        color:black;
+                        font-size:15px;
+                        &:hover{
+                            background-color:lighten(@col-mn-green,10%);
+                        }
+                    }
+                }
 
                 .product-price, .product-cost {
                     text-align: right;
                 }
 
-                .columns,.totals {
+                .columns, .totals {
                     font-weight: bold;
 
                     div {
@@ -437,32 +455,56 @@ html, body {
                         text-align: right;
                     }
                 }
-                
 
+                
+                input{
+                    display:block;
+                    max-width:250px;
+                    width:100%;
+                }
                 .items {
                     .product {
                         div {
                             display: inline-block;
                             min-width: 20%;
                         }
+                        
+                        input{
+                            width: 50px;
+                        }
+                    }
+
+                    input{
+                        display:inline-block;
+                    }
+
+                    .mn-button {
+                        min-width:initial !important;
+
+                        i {
+                            margin-right: 0px;
+                        }
                     }
                 }
 
                 .info {
-                    >div{
-                        margin-left:10px;
+                    >div {
+                        margin-left: 10px;
                     }
+
                     >label {
                         font-weight: bold;
                     }
-                    label{                        
-                        display:block;
-                        margin-left:2px;
+
+                    label {
+                        display: block;
+                        margin-left: 2px;
                     }
+
                     >.is-sig {
                         label {
                             font-size: 12px;
-                            display:inline-block;
+                            display: inline-block;
                         }
 
                         .sigWrapper {

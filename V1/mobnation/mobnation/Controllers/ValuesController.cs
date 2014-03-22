@@ -4,9 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using EmailEntities;
 
 namespace mobnation.Controllers
 {
+
+
     public class ValuesController : ApiController
     {
         // GET api/values
@@ -22,8 +25,9 @@ namespace mobnation.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post( ReceiptData value)
         {
+
         }
 
         // PUT api/values/5
