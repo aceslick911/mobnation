@@ -20,7 +20,7 @@ body {
 .mn-button {
   background-color: #208cbc;
   border: 1px solid white;
-  padding: 4px 9px;
+  padding: 4px 7px;
   color: white;
   font-size: 11px;
   -webkit-border-radius: 3px;
@@ -29,6 +29,9 @@ body {
 }
 .mn-button:hover {
   background-color: #5ebbe4;
+}
+.mn-button i {
+  margin-right: 5px;
 }
 .mn-home {
   min-height: 100%;
@@ -130,12 +133,13 @@ body {
   width: 100px;
   border: 1px solid #d1d1d1;
   text-align: center;
+  background-color: white;
 }
 .mn-home .body .cards-list .profile-card .thumbnail i {
   font-size: 35px;
   color: white;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.61);
-  margin-left: 33px;
+  margin-left: 6px;
   margin-top: 30px;
 }
 .mn-home .body .cards-list .profile-card .dark {
@@ -298,19 +302,78 @@ body {
   padding: 10px;
   text-align: center;
 }
+.mn-profile .body > .receipt .separator {
+  background-color: white;
+  height: 5px;
+  margin: 5px 0px;
+}
 .mn-profile .body > .receipt > .header {
   display: inline-block;
   text-align: left;
   float: left;
+  margin-top: 2px;
 }
 .mn-profile .body > .receipt > .items {
   display: inline-block;
   text-align: center;
 }
+.mn-profile .body > .receipt > .items button {
+  background-color: #ff6c6c;
+}
+.mn-profile .body > .receipt > .items button:hover {
+  background-color: #ff9f9f;
+}
 .mn-profile .body > .receipt > .summary {
   display: inline-block;
   text-align: right;
   float: right;
+}
+.mn-profile .body > .receipt .details {
+  text-align: left;
+}
+.mn-profile .body > .receipt .details .product-price,
+.mn-profile .body > .receipt .details .product-cost {
+  text-align: right;
+}
+.mn-profile .body > .receipt .details .columns,
+.mn-profile .body > .receipt .details .totals {
+  font-weight: bold;
+}
+.mn-profile .body > .receipt .details .columns div,
+.mn-profile .body > .receipt .details .totals div {
+  display: inline-block;
+  min-width: 20%;
+}
+.mn-profile .body > .receipt .details .columns .product-price,
+.mn-profile .body > .receipt .details .totals .product-price,
+.mn-profile .body > .receipt .details .columns .product-cost,
+.mn-profile .body > .receipt .details .totals .product-cost {
+  text-align: right;
+}
+.mn-profile .body > .receipt .details .items .product div {
+  display: inline-block;
+  min-width: 20%;
+}
+.mn-profile .body > .receipt .details .info > div {
+  margin-left: 10px;
+}
+.mn-profile .body > .receipt .details .info > label {
+  font-weight: bold;
+}
+.mn-profile .body > .receipt .details .info label {
+  display: block;
+  margin-left: 2px;
+}
+.mn-profile .body > .receipt .details .info > .is-sig label {
+  font-size: 12px;
+  display: inline-block;
+}
+.mn-profile .body > .receipt .details .info > .is-sig .sigWrapper {
+  height: initial;
+}
+.mn-profile .body > .receipt .details .mn-button {
+  display: inline-block;
+  cursor: pointer;
 }
 .mn-profile .body > .products-list .heading {
   padding-left: 10px;

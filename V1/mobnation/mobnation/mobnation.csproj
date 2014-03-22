@@ -170,6 +170,13 @@
     <Content Include="Content\images\mobnation-white-hand.png" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
+    <TypeScriptCompile Include="Content\scripts\bindings\signaturePadBinding.ts" />
+    <Content Include="Content\scripts\bindings\signaturePadBinding.js">
+      <DependentUpon>signaturePadBinding.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\signature-pad\assets\journal.eot" />
+    <Content Include="Scripts\signature-pad\assets\journal.ttf" />
+    <Content Include="Scripts\signature-pad\assets\journal.woff" />
     <TypeScriptCompile Include="Content\scripts\rootVM.ts" />
     <TypeScriptCompile Include="Content\scripts\homeVM.ts" />
     <TypeScriptCompile Include="Content\scripts\profileVM.ts" />
@@ -209,6 +216,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.signaturepad.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -220,6 +228,13 @@
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\signals.js" />
+    <Content Include="Scripts\signature-pad\assets\flashcanvas.js" />
+    <Content Include="Scripts\signature-pad\assets\flashcanvas.swf" />
+    <Content Include="Scripts\signature-pad\assets\journal.svg" />
+    <Content Include="Scripts\signature-pad\assets\jquery.signaturepad.css" />
+    <Content Include="Scripts\signature-pad\assets\json2.min.js" />
+    <Content Include="Scripts\signature-pad\assets\pen.cur" />
+    <Content Include="Scripts\signature-pad\jquery.signaturepad.js" />
     <Content Include="Scripts\typings\crossroads\crossroads.d.ts" />
     <Content Include="Scripts\typings\jasmine\jasmine-1.3.d.ts" />
     <Content Include="Scripts\typings\jasmine\jasmine.d.ts" />

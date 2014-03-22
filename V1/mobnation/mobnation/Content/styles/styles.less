@@ -6,15 +6,15 @@
 @col-mn-grey: rgb(159,157,157);
 @col-mn-light-grey: rgb(235,235,235);
 @col-mn-dark-grey: rgb(56,56,56);
+@col-mn-red: #ff6c6c;
 
-#layout-root{
-
+#layout-root {
 }
 //Common styles
 html, body {
     font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
     height: 100%;
-    margin:0;
+    margin: 0;
     line-height: 1.42857143;
     font-size: 14px;
     color: #333;
@@ -42,13 +42,17 @@ html, body {
 .mn-button {
     background-color: darken( @col-mn-blue, 20%);
     border: 1px solid white;
-    padding: 4px 9px;
+    padding: 4px 7px;
     color: white;
     font-size: 11px;
     .borderRadius(3px);
 
     &:hover {
         background-color: @col-mn-blue;
+    }
+
+    i {
+        margin-right: 5px;
     }
 }
 
@@ -175,13 +179,14 @@ html, body {
                     height: 100px;
                     width: 100px;
                     border: 1px solid lighten(@col-mn-grey, 20%);
-                    text-align:center;
+                    text-align: center;
+                    background-color: white;
 
                     i {
                         font-size: 35px;
                         color: white;
                         text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.61);
-                        margin-left: 33px;
+                        margin-left: 6px;
                         margin-top: 30px;
                     }
                 }
@@ -240,9 +245,9 @@ html, body {
             left: 5px;
             top: 5px;
             overflow: hidden;
-            background-color:white;
-                    border: 1px solid lighten(@col-mn-grey, 20%);
-                    text-align:center;
+            background-color: white;
+            border: 1px solid lighten(@col-mn-grey, 20%);
+            text-align: center;
         }
 
         .mobnation-button {
@@ -297,7 +302,7 @@ html, body {
                     left: 5px;
                     top: 5px;
                     overflow: hidden;
-                    text-align:center;
+                    text-align: center;
 
                     .mn-caption {
                         position: absolute;
@@ -374,26 +379,102 @@ html, body {
 
     .body {
         >.receipt {
-            margin-top:10px;
-            display:block;
-            background-color:@col-mn-light-grey;
-            padding:10px;
-            text-align:center;
-            >.header {
-                display:inline-block;
-                text-align:left;
-                float:left;
+            margin-top: 10px;
+            display: block;
+            background-color: @col-mn-light-grey;
+            padding: 10px;
+            text-align: center;
+
+            .separator{
+                background-color:white;
+                height:5px;
+                margin:5px 0px;
             }
 
-            >.items{
-                
-                display:inline-block;
-                text-align:center;
+            >.header {
+                display: inline-block;
+                text-align: left;
+                float: left;
+                margin-top: 2px;
             }
-            >.summary{
-                display:inline-block;
-                text-align:right;
-                float:right;
+
+            >.items {
+                display: inline-block;
+                text-align: center;
+
+                button {
+                    background-color: @col-mn-red;
+
+                    &:hover {
+                        background-color: lighten(@col-mn-red,10%);
+                    }
+                }
+            }
+
+            >.summary {
+                display: inline-block;
+                text-align: right;
+                float: right;
+            }
+
+            .details {
+                text-align: left;
+
+
+                .product-price, .product-cost {
+                    text-align: right;
+                }
+
+                .columns,.totals {
+                    font-weight: bold;
+
+                    div {
+                        display: inline-block;
+                        min-width: 20%;
+                    }
+
+                    .product-price, .product-cost {
+                        text-align: right;
+                    }
+                }
+                
+
+                .items {
+                    .product {
+                        div {
+                            display: inline-block;
+                            min-width: 20%;
+                        }
+                    }
+                }
+
+                .info {
+                    >div{
+                        margin-left:10px;
+                    }
+                    >label {
+                        font-weight: bold;
+                    }
+                    label{                        
+                        display:block;
+                        margin-left:2px;
+                    }
+                    >.is-sig {
+                        label {
+                            font-size: 12px;
+                            display:inline-block;
+                        }
+
+                        .sigWrapper {
+                            height: initial;
+                        }
+                    }
+                }
+
+                .mn-button {
+                    display: inline-block;
+                    cursor: pointer;
+                }
             }
         }
 
@@ -495,7 +576,7 @@ html, body {
                         height: 18px;
                         width: 18px;
                         .borderRadius(10px);
-                        background-color: #ff6c6c;
+                        background-color: @col-mn-red;
                         border: 2px solid #d10000;
                         color: white;
                         font-size: 14px;

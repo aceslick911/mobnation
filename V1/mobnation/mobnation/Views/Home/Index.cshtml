@@ -7,26 +7,31 @@
 
         <!-- 3rd Party Stylesheets & Libraries -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link href="/Content/bootstrap.css" rel="stylesheet" />
 
         <!-- Site Stylesheets -->
         <link href="/Content/styles/styles.css" rel="stylesheet" />
         
+        <!-- Modernizr -->
         <script src="/Scripts/modernizr-2.7.2.js"></script>
 
         <!-- JS Libaries -->
+        <!--[if lt IE 9]><script src="/Scripts/signature-pad/assets/flashcanvas.js"></script><![endif]-->
         <script src="/Scripts/jquery-2.1.0.js"></script>
         <script src="/Scripts/knockout-3.1.0.debug.js"></script>
         <script src="/Scripts/signals.js"></script>
         <script src="/Scripts/hasher.js"></script>
         <script src="/Scripts/crossroads.js"></script>
         <script src="/Scripts/underscore.js"></script>
-        
+        <script src="/Scripts/signature-pad/jquery.signaturepad.js"></script>
+        <script src="/Scripts/signature-pad/assets/json2.min.js"></script>
+
         <!-- View Models -->
         <script src="/Content/scripts/homevm.js"></script>
         <script src="/Content/scripts/profilevm.js"></script>
         
-        
+        <!-- KO Bindings -->
+        <script src="/Content/scripts/bindings/signaturePadBinding.js"></script>
+
         <!-- Root VM Application -->
         <script src="/Content/scripts/rootVM.js"></script>
         
@@ -46,7 +51,7 @@
         <title>MobNation.org</title>
     </head>
 <body>
-    <div id="layout-root" data-bind="css: { 'mn-debug': true, 'mn-mobile': isMobile, 'mn-mouse': false }, template: { name: rootVM.activeTemplate(), data: rootVM }"></div>
+    <div id="layout-root" data-bind="css: { 'mn-debug': true, 'mn-mobile': rootVM.isMobile, 'mn-mouse': false }, template: { name: rootVM.activeTemplate(), data: rootVM }"></div>
 </body>
 </html>
 

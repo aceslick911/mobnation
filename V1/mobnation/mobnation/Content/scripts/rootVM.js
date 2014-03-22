@@ -8,6 +8,7 @@
 var RootVM = (function () {
     function RootVM() {
         this.activeTemplate = ko.observable("");
+        this.profileVM = ko.observable(null);
         this.isMobile = false;
         this.homeVM = new HomeVM();
     }
@@ -26,14 +27,14 @@ var RootVM = (function () {
         //Setup Hash Routing
         //setup crossroads
         crossroads.addRoute('', function () {
-            rootVM.activeTemplate('home/homeTemplate');
+            _this.activeTemplate('home/homeTemplate');
 
             //update URL fragment generating new history record
             hasher.setHash('');
         });
         crossroads.addRoute('{id}', function (id) {
-            _this.profileVM = new ProfileVM(id);
-            rootVM.activeTemplate('profile/profileTemplate');
+            _this.profileVM(new ProfileVM(id));
+            _this.activeTemplate('profile/profileTemplate');
         });
 
         //crossroads.routed.add(console.log, console); //log all routes
@@ -54,6 +55,8 @@ var RootVM = (function () {
                 $.get("Content/templates/" + name + ".html", function (template) {
                     $("body").append("<script id=\"" + name + "\" type=\"text/html\">" + template + "<\/script>");
                     loadedTemplates.push(name);
+
+                    //Apply Knockout rootVM binding after all templates loaded
                     if (list.length === loadedTemplates.length) {
                         ko.applyBindings(rootVM);
                     }
