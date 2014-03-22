@@ -1,3 +1,4 @@
+/// <reference path="../../Scripts/typings/modernizr/modernizr.d.ts" />
 /// <reference path="../../Scripts/typings/knockout/knockout.d.ts" />
 /// <reference path="../../Scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../../Scripts/typings/crossroads/crossroads.d.ts" />
@@ -7,20 +8,31 @@
 var RootVM = (function () {
     function RootVM() {
         this.activeTemplate = ko.observable("");
+        this.isMobile = false;
         this.homeVM = new HomeVM();
     }
     RootVM.prototype.initialize = function () {
+        this.initializeEnvironment();
         this.setupRoutes();
         this.loadTemplates();
     };
 
+    RootVM.prototype.initializeEnvironment = function () {
+        this.isMobile = Modernizr.touch;
+    };
+
     RootVM.prototype.setupRoutes = function () {
+        var _this = this;
         //Setup Hash Routing
         //setup crossroads
         crossroads.addRoute('', function () {
             rootVM.activeTemplate('home/homeTemplate');
+
+            //update URL fragment generating new history record
+            hasher.setHash('');
         });
         crossroads.addRoute('{id}', function (id) {
+            _this.profileVM = new ProfileVM(id);
             rootVM.activeTemplate('profile/profileTemplate');
         });
 
@@ -32,8 +44,6 @@ var RootVM = (function () {
         hasher.initialized.add(parseHash); //parse initial hash
         hasher.changed.add(parseHash); //parse hash changes
         hasher.init(); //start listening for history change
-        //update URL fragment generating new history record
-        //hasher.setHash('');
     };
 
     RootVM.prototype.loadTemplates = function () {

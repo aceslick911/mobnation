@@ -1,3 +1,4 @@
+/// <reference path="../../Scripts/typings/modernizr/modernizr.d.ts" />
 /// <reference path="../../Scripts/typings/knockout/knockout.d.ts" />
 /// <reference path="../../Scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../../Scripts/typings/crossroads/crossroads.d.ts" />
@@ -15,6 +16,8 @@ class RootVM {
     profileVM: ProfileVM;
     homeVM: HomeVM;
 
+    isMobile: boolean = false;
+
     constructor() {
 
         this.homeVM = new HomeVM();
@@ -22,8 +25,15 @@ class RootVM {
     }
 
     initialize() {
+        this.initializeEnvironment();
         this.setupRoutes();
         this.loadTemplates();
+    }
+
+    initializeEnvironment() {
+
+        this.isMobile = Modernizr.touch;
+
     }
 
     setupRoutes() {
@@ -33,8 +43,12 @@ class RootVM {
         //setup crossroads
         crossroads.addRoute('', () => {
             rootVM.activeTemplate('home/homeTemplate');
+
+            //update URL fragment generating new history record
+            hasher.setHash('');
         });
         crossroads.addRoute('{id}', (id: any) => {
+            this.profileVM = new ProfileVM(id);
             rootVM.activeTemplate('profile/profileTemplate');
         });
 
@@ -48,8 +62,6 @@ class RootVM {
         hasher.changed.add(parseHash); //parse hash changes
         hasher.init(); //start listening for history change
 
-        //update URL fragment generating new history record
-        //hasher.setHash('');
 
     }
 

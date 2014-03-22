@@ -27,6 +27,20 @@
         </div>
     </div>
     <div class="body">
+        <div class="receipt">
+            <div class="header">New Receipt</div>
+            <div class="items">
+                <label>5 Items</label>
+                <button class="mn-button"><i class="fa fa-trash"></i> Remove All</button>
+            </div>
+            <div class="summary">
+                <div class="totals"></div>
+                <div class="actions">
+                    <button class="mn-button"><i class="fa fa-envelope"></i> Submit Receipt</button>
+                </div>
+            </div>
+        </div>
+
         <div class="products-list">
             <div class="heading">Products</div>
             <div class="product-container">
@@ -43,7 +57,7 @@
                     <div class="right-section">
                         <div class="product-price">
                             <input type="text" placeholder="Price"></div>
-                        <button class="mn-button">Create New Product</button>
+                        <button class="mn-button"><i class="fa fa-plus"></i> New Product</button>
                         <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
                     </div>
 
@@ -60,7 +74,7 @@
                     </div>
                     <div class="right-section">
                         <div class="product-price">Free</div>
-                        <button class="mn-button">Add to Receipt</button>
+                        <button class="mn-button"><i class="fa fa-file"></i> Build Receipt</button>
                         <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
                     </div>
                     <div class="banner-text">
@@ -69,6 +83,7 @@
                 </div>
 
             </div>
+            
         </div>
     </div>
     <div class="footer" data-bind="template: { name: 'home/footerTemplate' }"></div>

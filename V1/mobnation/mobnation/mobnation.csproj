@@ -159,10 +159,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\mobnation-hand-medium.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -195,12 +191,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\styles\styles.less" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <None Include="Properties\PublishProfiles\mobnation.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\crossroads.js" />
     <Content Include="Scripts\hasher.js" />
     <Content Include="Scripts\jasmine-samples\Player.js" />
@@ -225,7 +217,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\signals.js" />
     <Content Include="Scripts\typings\crossroads\crossroads.d.ts" />
@@ -234,6 +226,7 @@
     <Content Include="Scripts\typings\jquery\jquery.d.ts" />
     <Content Include="Scripts\typings\js-signals\js-signals.d.ts" />
     <Content Include="Scripts\typings\knockout\knockout.d.ts" />
+    <Content Include="Scripts\typings\modernizr\modernizr.d.ts" />
     <Content Include="Scripts\typings\underscore\underscore.d.ts" />
     <Content Include="Scripts\underscore-ko-1.2.2.js" />
     <Content Include="Scripts\underscore-ko-1.2.2.min.js" />
