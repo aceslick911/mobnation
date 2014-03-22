@@ -1,4 +1,5 @@
-/// <reference path="../../Scripts/typings/underscore/underscore.d.ts" />
+/// <reference path="../../Scripts/typings/common.d.ts" />
+
 class ProfileVM {
 
     public ProfileID: string;
@@ -25,7 +26,7 @@ class ReceiptVM {
     recName = ko.observable("");
     recEmail = ko.observable("");
     isName = ko.observable("");
-    sigData = ko.observable("");
+    sigData: KnockoutObservable< MNE.SigData[]> = ko.observable([]);
 
     items = ko.observableArray<receiptItem>([]);
 
@@ -55,16 +56,16 @@ class ReceiptVM {
         this.recName("");
         this.recEmail("");
         this.isName("");
-        this.sigData("");
+        this.sigData([]);
         this.items([]);
         this.receiptExpanded(false);
         this.receiptActive(false);
     }
 
-    receiptData() {
+    receiptData(): MNE.ReceiptData {
         return {
             items: _.map(this.items(), (item: receiptItem) => {
-                return {
+                return <MNE.ReceiptItem>{
                     name: item.name,
                     qty: item.qty(),
                     price: item.price,

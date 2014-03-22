@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using T4TS;
 
-namespace EmailEntities
+namespace mobnation
 {
 
     public interface IReceiptItem
     {
         string name { get; set; }
 
-        string qty { get; set; }
-        string price { get; set; }
-        string cost { get; set; }
+        double qty { get; set; }
+        double price { get; set; }
+        double cost { get; set; }
     }
-
+    [TypeScriptInterface]
     public class ReceiptItem : IReceiptItem
     {
         public string name { get; set; }
-        public string qty { get; set; }
-        public string price { get; set; }
-        public string cost { get; set; }
+        public double qty { get; set; }
+        public double price { get; set; }
+        public double cost { get; set; }
     }
 
     public interface ISigData
@@ -30,7 +31,7 @@ namespace EmailEntities
         int mx { get; set; }
         int my { get; set; }
     }
-
+    [TypeScriptInterface]
     public class SigData : ISigData
     {
         public int lx { get; set; }
@@ -49,7 +50,7 @@ namespace EmailEntities
         List<SigData> isSig { get; set; }
 
     }
-
+    [TypeScriptInterface]
     public class ReceiptData : IReceiptData
     {
         public List<ReceiptItem> items { get; set; }

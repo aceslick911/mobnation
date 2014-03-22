@@ -1,4 +1,4 @@
-/// <reference path="../../Scripts/typings/underscore/underscore.d.ts" />
+/// <reference path="../../Scripts/typings/common.d.ts" />
 var ProfileVM = (function () {
     function ProfileVM(profileId) {
         this.ProfileID = profileId;
@@ -16,7 +16,7 @@ var ReceiptVM = (function () {
         this.recName = ko.observable("");
         this.recEmail = ko.observable("");
         this.isName = ko.observable("");
-        this.sigData = ko.observable("");
+        this.sigData = ko.observable([]);
         this.items = ko.observableArray([]);
         this.items([new receiptItem("Test", 5)]);
 
@@ -39,7 +39,7 @@ var ReceiptVM = (function () {
         this.recName("");
         this.recEmail("");
         this.isName("");
-        this.sigData("");
+        this.sigData([]);
         this.items([]);
         this.receiptExpanded(false);
         this.receiptActive(false);
