@@ -57,7 +57,7 @@ namespace MobnationHelpers
             SMTPServer.DeliveryMethod = SmtpDeliveryMethod.Network;
             SMTPServer.UseDefaultCredentials = false;
             SMTPServer.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["Username"], ConfigurationManager.AppSettings["Password"]);
-            
+            Console.WriteLine("Authentication:"+ConfigurationManager.AppSettings["Username"]+ ConfigurationManager.AppSettings["Password"]);
 
             SMTPServer.Send(MyMailMessage);
 

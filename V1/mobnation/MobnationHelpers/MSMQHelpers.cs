@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Messaging;
+using System.Threading;
 
 namespace MobnationHelpers
 {
@@ -44,7 +45,12 @@ namespace MobnationHelpers
             msmqQueue.ReceiveCompleted += new ReceiveCompletedEventHandler(handler);
             Console.Write("5");
             msmqQueue.BeginReceive();
-            Console.Write("6");
+            Console.Write(" Restarting watch.. ");
+
+
+            msmqQueue.BeginReceive();
+
+
             return true;
         }
 

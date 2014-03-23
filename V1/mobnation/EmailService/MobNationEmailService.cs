@@ -55,7 +55,7 @@ namespace EmailService
 
         private static void initializeLogging()
         {
-            FileStream filestream = new FileStream(@"c:\inetpub\log.txt", FileMode.Create);
+            FileStream filestream = new FileStream(@"c:\inetpub\log.txt", FileMode.OpenOrCreate);
             var streamwriter = new StreamWriter(filestream);
             streamwriter.AutoFlush = true;
             Console.SetOut(streamwriter);
@@ -101,16 +101,19 @@ namespace EmailService
         {
             try
             {
+                Console.WriteLine("New Queue Message Recieved");
                 lock (_objLock)
                 {
                     EmailEntities.EmailMessage emailMsg = (EmailEntities.EmailMessage)e.Message.Body;
-                    Console.WriteLine("Received message is " + emailMsg.Body);
+                    Console.WriteLine("Received message: " + emailMsg.Body);
 
 
                     try
                     {
 
+                        Console.WriteLine("Sending Email..");
                         MobnationHelpers.Email.SendEmail(emailMsg);
+                        Console.WriteLine("Email Successfully sent");
 
                     }
                     catch (Exception oEx)

@@ -10,3 +10,12 @@ V1/mobnation/EmailService/bin
 assets/images/Source/*.idlk
 V1/mobnation/EmailService/EmailService.exe.config
 V1/mobnation/mobnation.Tests/App.config
+V1/mobnation/EmailEntities/bin
+V1/mobnation/EmailEntities/bin/Debug
+V1/mobnation/mobnation/App_Data
+V1/mobnation/mobnation/Web.config
+V1/mobnation/MobnationHelpers/bin
+V1/mobnation/MobnationHelpers/obj
+V1/mobnation/MobnationHelpers/bin
+V1/mobnation/MobnationHelpers/obj
+V1/mobnation/MobnationHelpers/output.pdf
