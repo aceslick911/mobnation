@@ -1,11 +1,29 @@
 /// <reference path="../../Scripts/typings/common.d.ts" />
 var ProfileVM = (function () {
     function ProfileVM(profileId) {
+        this.products = ko.observableArray([]);
         this.ProfileID = profileId;
 
         this.receipt = new ReceiptVM();
+
+        this.products.push(new ProductVM("7-Day Free Trial", "Free 7 Day trial available only to new students and for a limited time", "Free", "Special Offer"));
     }
     return ProfileVM;
+})();
+var ProductVM = (function () {
+    function ProductVM(aName, aDesc, aPrice, aProductType) {
+        this.productType = ko.observable("");
+        this.name = ko.observable("");
+        this.desc = ko.observable("");
+        this.price = ko.observable("");
+        this.isMode = ko.observable(false);
+        this.badgeNumber = ko.observable(0);
+        this.name(aName);
+        this.desc(aDesc);
+        this.price(aPrice);
+        this.productType(aProductType);
+    }
+    return ProductVM;
 })();
 
 var ReceiptVM = (function () {
@@ -23,7 +41,7 @@ var ReceiptVM = (function () {
         this.totalQty = ko.computed(function () {
             var val = 0;
             _.forEach(_this.items(), function (item) {
-                val = Number(val + item.qty());
+                val = Number(val + parseInt("0" + item.qty(), 10));
             });
             return val;
         });

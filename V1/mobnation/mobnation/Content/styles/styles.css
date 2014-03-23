@@ -128,7 +128,7 @@ body {
   outline: 2px solid #5ebbe4;
   cursor: pointer;
 }
-.mn-home .body .cards-list .profile-card .thumbnail {
+.mn-home .body .cards-list .profile-card > .thumbnail {
   position: absolute;
   left: 5px;
   top: 5px;
@@ -141,7 +141,7 @@ body {
   text-align: center;
   background-color: white;
 }
-.mn-home .body .cards-list .profile-card .thumbnail i {
+.mn-home .body .cards-list .profile-card > .thumbnail i {
   font-size: 35px;
   color: white;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.61);
@@ -174,6 +174,252 @@ body {
   position: absolute;
   bottom: 0px;
 }
+.product-card {
+  background-color: #ebebeb;
+  margin: 5px;
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 110px;
+  border: 1px solid #9f9d9d;
+  vertical-align: bottom;
+}
+.product-card.create {
+  border: 2px dotted #5ebbe4;
+  cursor: default !important;
+  outline: none !important;
+}
+.product-card.create .edit-toggle {
+  display: none !important;
+}
+.product-card.create .left-section {
+  width: 189px;
+}
+.product-card.create:hover {
+  box-shadow: 0px 0px 5px yellow;
+}
+.product-card.create .right-section {
+  padding-top: 5px;
+}
+.product-card.create .right-section input {
+  width: 96px;
+}
+.product-card.create .right-section .product-price {
+  margin-top: 20px;
+}
+.product-card.create input {
+  outline: none;
+  background: transparent;
+  width: 190px;
+  padding: 2px 5px;
+  border: none;
+  color: black;
+}
+.product-card.create input:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.product-card.create input::-webkit-input-placeholder {
+  color: #9f9d9d;
+}
+.product-card.create input:-moz-placeholder {
+  color: #9f9d9d;
+}
+.product-card.create input::-moz-placeholder {
+  color: #9f9d9d;
+}
+.product-card.create input:-ms-input-placeholder {
+  color: #9f9d9d;
+}
+.product-card.create .dark {
+  color: black;
+}
+.product-card.create .white {
+  background-color: #ffffff;
+  color: black;
+}
+.product-card.create .card-title {
+  bottom: 2px;
+}
+.product-card .banner-text {
+  height: 18px;
+  width: 18px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #ff6c6c;
+  border: 2px solid #d10000;
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  text-align: center;
+  padding: 0;
+}
+.product-card .banner-text .number {
+  margin-top: -3px;
+}
+.product-card .left-section {
+  vertical-align: bottom;
+  position: relative;
+  width: 194px;
+  display: inline-block;
+  height: 110px;
+}
+.product-card .left-section .product-type {
+  padding: 5px 0px 0px 5px;
+  color: #9f9d9d;
+  font-size: 12px;
+}
+.product-card .left-section .product-title {
+  padding: 0px 5px;
+  font-size: 25px;
+  margin-top: -3px;
+}
+.product-card .left-section .product-desc {
+  font-size: 13px;
+  padding: 0px 5px;
+  margin-top: -3px;
+}
+.product-card .left-section.expanded .more-toggle:after {
+  content: "Less..";
+}
+.product-card .left-section .more-toggle {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 50px;
+  height: 23px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 3px;
+}
+.product-card .left-section .more-toggle:after {
+  content: 'More..';
+}
+.product-card .left-section .more-toggle:hover {
+  color: #5ebbe4;
+}
+.product-card .right-section {
+  vertical-align: bottom;
+  height: 110px;
+  width: 100px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+.product-card .right-section .mn-button {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+}
+.product-card .right-section .product-price {
+  margin-top: 30px;
+}
+.product-card .right-section .product-price input {
+  text-align: center;
+  text-transform: uppercase;
+}
+.product-card .right-section .edit-toggle {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.mn-mobile .product-card .right-section .edit-toggle {
+  display: block;
+}
+.product-card .right-section .edit-toggle:hover {
+  color: #5ebbe4;
+}
+.product-card .card-title {
+  position: absolute;
+  bottom: 0px;
+}
+.head-container {
+  border: 1px solid #d1d1d1;
+  background-color: #ebebeb;
+  padding: 5px;
+  display: inline-block;
+  height: 102px;
+  min-width: 200px;
+  margin: 5px;
+  position: relative;
+}
+.head-container > .thumbnail {
+  height: 90px;
+  width: 90px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+.head-container > .thumbnail .mn-caption {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2px 0px;
+}
+.head-container > .thumbnail img {
+  height: 100%;
+}
+.head-container .details {
+  padding-left: 100px;
+  display: block;
+  overflow: hidden;
+  height: 90px;
+}
+.head-container.contact {
+  max-width: 350px;
+}
+.head-container.about {
+  max-width: 574px;
+}
+.head-container.expanded .more-toggle:after {
+  content: "Less..";
+}
+.head-container .more-toggle {
+  display: none;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 50px;
+  height: 23px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 3px;
+}
+.head-container .more-toggle:after {
+  content: 'More..';
+}
+.head-container .more-toggle:hover {
+  color: #5ebbe4;
+}
+.head-container .edit-toggle {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.mn-mobile .head-container .edit-toggle {
+  display: block;
+}
+.head-container .edit-toggle:hover {
+  color: #5ebbe4;
+}
 .mn-profile {
   max-width: 950px;
   margin: auto;
@@ -184,7 +430,7 @@ body {
   background-repeat: repeat-x;
   padding-top: 70px;
 }
-.mn-profile > .header .thumbnail {
+.mn-profile > .header > .thumbnail {
   height: 120px;
   width: 120px;
   position: absolute;
@@ -195,7 +441,7 @@ body {
   border: 1px solid #d1d1d1;
   text-align: center;
 }
-.mn-profile > .header .thumbnail .dropzone {
+.mn-profile > .header > .thumbnail .dropzone {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -230,83 +476,6 @@ body {
 }
 .mn-profile > .header .profile-headers .sub-title {
   font-size: 20px;
-}
-.mn-profile > .header .profile-headers .head-container {
-  border: 1px solid #d1d1d1;
-  background-color: #ebebeb;
-  padding: 5px;
-  display: inline-block;
-  height: 102px;
-  min-width: 200px;
-  margin: 5px;
-  position: relative;
-}
-.mn-profile > .header .profile-headers .head-container .thumbnail {
-  height: 90px;
-  width: 90px;
-  background-color: white;
-  border: 1px solid #d1d1d1;
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  overflow: hidden;
-  text-align: center;
-}
-.mn-profile > .header .profile-headers .head-container .thumbnail .mn-caption {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 2px 0px;
-}
-.mn-profile > .header .profile-headers .head-container .thumbnail img {
-  height: 100%;
-}
-.mn-profile > .header .profile-headers .head-container .details {
-  padding-left: 100px;
-  display: block;
-  overflow: hidden;
-  height: 90px;
-}
-.mn-profile > .header .profile-headers .head-container.contact {
-  max-width: 350px;
-}
-.mn-profile > .header .profile-headers .head-container.about {
-  max-width: 574px;
-}
-.mn-profile > .header .profile-headers .head-container .more-toggle {
-  display: none;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 50px;
-  height: 23px;
-  background-color: white;
-  border: 1px solid #d1d1d1;
-  font-size: 12px;
-  cursor: pointer;
-  padding: 3px;
-}
-.mn-profile > .header .profile-headers .head-container .more-toggle:after {
-  content: 'More..';
-}
-.mn-profile > .header .profile-headers .head-container .more-toggle:hover {
-  color: #5ebbe4;
-}
-.mn-profile > .header .profile-headers .head-container .edit-toggle {
-  display: none;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-}
-.mn-mobile .mn-profile > .header .profile-headers .head-container .edit-toggle {
-  display: block;
-}
-.mn-profile > .header .profile-headers .head-container .edit-toggle:hover {
-  color: #5ebbe4;
 }
 .mn-profile .body > .receipt {
   margin-top: 10px;
@@ -419,168 +588,6 @@ body {
 .mn-profile .body > .products-list .heading {
   padding-left: 10px;
   margin-top: 10px;
-}
-.mn-profile .body > .products-list .product-container .product-card {
-  background-color: #ebebeb;
-  margin: 5px;
-  position: relative;
-  display: inline-block;
-  width: 300px;
-  height: 110px;
-  border: 1px solid #9f9d9d;
-  vertical-align: bottom;
-}
-.mn-profile .body > .products-list .product-container .product-card.create {
-  border: 2px dotted #5ebbe4;
-  cursor: default !important;
-  outline: none !important;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .edit-toggle {
-  display: none !important;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .left-section {
-  width: 189px;
-}
-.mn-profile .body > .products-list .product-container .product-card.create:hover {
-  box-shadow: 0px 0px 5px yellow;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .right-section {
-  padding-top: 5px;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .right-section input {
-  width: 96px;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .right-section .product-price {
-  margin-top: 20px;
-}
-.mn-profile .body > .products-list .product-container .product-card.create input {
-  outline: none;
-  background: transparent;
-  width: 190px;
-  padding: 2px 5px;
-  border: none;
-  color: black;
-}
-.mn-profile .body > .products-list .product-container .product-card.create input:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-.mn-profile .body > .products-list .product-container .product-card.create input::-webkit-input-placeholder {
-  color: #9f9d9d;
-}
-.mn-profile .body > .products-list .product-container .product-card.create input:-moz-placeholder {
-  color: #9f9d9d;
-}
-.mn-profile .body > .products-list .product-container .product-card.create input::-moz-placeholder {
-  color: #9f9d9d;
-}
-.mn-profile .body > .products-list .product-container .product-card.create input:-ms-input-placeholder {
-  color: #9f9d9d;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .dark {
-  color: black;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .white {
-  background-color: #ffffff;
-  color: black;
-}
-.mn-profile .body > .products-list .product-container .product-card.create .card-title {
-  bottom: 2px;
-}
-.mn-profile .body > .products-list .product-container .product-card .banner-text {
-  height: 18px;
-  width: 18px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #ff6c6c;
-  border: 2px solid #d10000;
-  color: white;
-  font-size: 14px;
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  text-align: center;
-  padding: 0;
-}
-.mn-profile .body > .products-list .product-container .product-card .banner-text .number {
-  margin-top: -3px;
-}
-.mn-profile .body > .products-list .product-container .product-card .left-section {
-  vertical-align: bottom;
-  position: relative;
-  width: 194px;
-  display: inline-block;
-  height: 110px;
-}
-.mn-profile .body > .products-list .product-container .product-card .left-section .product-type {
-  padding: 5px 0px 0px 5px;
-  color: #9f9d9d;
-  font-size: 12px;
-}
-.mn-profile .body > .products-list .product-container .product-card .left-section .product-title {
-  padding: 0px 5px;
-  font-size: 25px;
-  margin-top: -3px;
-}
-.mn-profile .body > .products-list .product-container .product-card .left-section .product-desc {
-  font-size: 13px;
-  padding: 0px 5px;
-  margin-top: -3px;
-}
-.mn-profile .body > .products-list .product-container .product-card .left-section .more-toggle {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 50px;
-  height: 23px;
-  background-color: white;
-  border: 1px solid #d1d1d1;
-  font-size: 12px;
-  cursor: pointer;
-  padding: 3px;
-}
-.mn-profile .body > .products-list .product-container .product-card .left-section .more-toggle:after {
-  content: 'More..';
-}
-.mn-profile .body > .products-list .product-container .product-card .left-section .more-toggle:hover {
-  color: #5ebbe4;
-}
-.mn-profile .body > .products-list .product-container .product-card .right-section {
-  vertical-align: bottom;
-  height: 110px;
-  width: 100px;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-}
-.mn-profile .body > .products-list .product-container .product-card .right-section .mn-button {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  right: 5px;
-}
-.mn-profile .body > .products-list .product-container .product-card .right-section .product-price {
-  margin-top: 30px;
-}
-.mn-profile .body > .products-list .product-container .product-card .right-section .product-price input {
-  text-align: center;
-}
-.mn-profile .body > .products-list .product-container .product-card .right-section .edit-toggle {
-  display: none;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-}
-.mn-mobile .mn-profile .body > .products-list .product-container .product-card .right-section .edit-toggle {
-  display: block;
-}
-.mn-profile .body > .products-list .product-container .product-card .right-section .edit-toggle:hover {
-  color: #5ebbe4;
-}
-.mn-profile .body > .products-list .product-container .product-card .card-title {
-  position: absolute;
-  bottom: 0px;
 }
 .overflowed .more-toggle {
   display: block !important;

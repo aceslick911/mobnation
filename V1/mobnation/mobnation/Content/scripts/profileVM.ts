@@ -6,16 +6,35 @@ class ProfileVM {
 
     public receipt: ReceiptVM;
 
+    public products: KnockoutObservableArray<ProductVM> = ko.observableArray<ProductVM>([]);
+
     constructor(profileId: any) {
 
         this.ProfileID = profileId;
 
         this.receipt = new ReceiptVM();
 
+        this.products.push(new ProductVM("7-Day Free Trial", "Free 7 Day trial available only to new students and for a limited time", "Free", "Special Offer"));
 
     }
 }
+class ProductVM {
 
+    public productType = ko.observable("");
+    public name = ko.observable("");
+    public desc = ko.observable("");
+    public price = ko.observable("");
+    public isMode = ko.observable(false);
+
+    public badgeNumber = ko.observable(0);
+
+    constructor(aName:string, aDesc:string, aPrice:string, aProductType:string) {
+        this.name(aName);
+        this.desc(aDesc);
+        this.price(aPrice);
+        this.productType(aProductType);
+    }
+}
 
 class ReceiptVM {
 
@@ -39,7 +58,7 @@ class ReceiptVM {
         this.totalQty = ko.computed(() => {
             var val = 0;
             _.forEach(this.items(), (item: receiptItem) => {
-                val = Number(val + item.qty());
+                val = Number(val + parseInt("0" + item.qty(), 10));
             });
             return val;
         });

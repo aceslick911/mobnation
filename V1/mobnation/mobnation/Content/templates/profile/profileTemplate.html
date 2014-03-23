@@ -1,4 +1,4 @@
-﻿<div class="mn-profile editable" data-bind="with: profileVM()">
+﻿<div class="mn-profile" data-bind="with: profileVM()">
     <div class="header">
         <div class="thumbnail">
             <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/case-monKickboxing-logo-large.png" />
@@ -8,7 +8,7 @@
         <div class="profile-headers">
             <div class="title">Monash Kickboxing</div>
             <div class="sub-title">Monash University Kickboxing Club</div>
-            <div class="head-container contact">
+            <div class="head-container contact"  data-bind="expandMore: { left: 0, top: 0, width: 10, height: 200 }">
                 <div class="thumbnail">
                     <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/kacey-image.jpg" />
                     <div class="mn-caption">Contact</div>
@@ -17,7 +17,7 @@
                 <div class="more-toggle"></div>
                 <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
             </div>
-            <div class="head-container about overflowed">
+            <div class="head-container about">
                 <div class="thumbnail">
                     <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/class-image.jpg" />
                     <div class="mn-caption">About</div>
@@ -133,8 +133,8 @@
 
                 </div>
 
-
-                <div class="product-card">
+                <!-- ko foreach: products -->
+                <div class="product-card" data-bind="expandMore: {left:-50, top:-50, width:50, height:100}">
                     <div class="left-section">
                         <div class="product-type">Special Offer</div>
                         <div class="product-title">7-Day Free Trial</div>
@@ -150,6 +150,7 @@
                         <div class="number">2</div>
                     </div>
                 </div>
+                <!-- /ko -->
 
             </div>
 

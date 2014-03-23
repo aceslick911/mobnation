@@ -190,6 +190,10 @@
     <Content Include="Content\scripts\bindings\dropZoneBinding.js">
       <DependentUpon>dropZoneBinding.ts</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Content\scripts\bindings\expandBinding.ts" />
+    <Content Include="Content\scripts\bindings\expandBinding.js">
+      <DependentUpon>expandBinding.ts</DependentUpon>
+    </Content>
     <Content Include="Content\scripts\bindings\signaturePadBinding.js">
       <DependentUpon>signaturePadBinding.ts</DependentUpon>
     </Content>

@@ -33,6 +33,7 @@
         <!-- KO Bindings -->
         <script src="/Content/scripts/bindings/signaturePadBinding.js"></script>
         <script src="/Content/scripts/bindings/dropZoneBinding.js"></script>
+        <script src="~/Content/scripts/bindings/expandBinding.js"></script>
 
         <!-- Root VM Application -->
         <script src="/Content/scripts/rootVM.js"></script>
@@ -52,8 +53,8 @@
         </script>
         <title>MobNation.org</title>
     </head>
-<body>
-    <div id="layout-root" data-bind="css: { 'mn-debug': true, 'mn-mobile': rootVM.isMobile, 'mn-mouse': false }, template: { name: rootVM.activeTemplate(), data: rootVM }"></div>
+<body data-bind="css: { 'mn-debug': true, 'mn-mobile': rootVM.isMobile, 'mn-mouse': false, 'editable': true }">
+    <div id="layout-root" data-bind="template: { name: rootVM.activeTemplate(), data: rootVM }"></div>
 </body>
 </html>
 
