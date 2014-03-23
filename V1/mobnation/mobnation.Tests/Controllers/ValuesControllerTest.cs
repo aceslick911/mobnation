@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Web.Http;
 using EmailEntities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using mobnation;
 using mobnation.Controllers;
 
 namespace mobnation.Tests.Controllers
@@ -14,69 +9,49 @@ namespace mobnation.Tests.Controllers
     [TestClass]
     public class ValuesControllerTest
     {
-        [TestMethod]
-        public void Get()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            IEnumerable<string> result = controller.Get();
-
-            // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual("value1", result.ElementAt(0));
-            Assert.AreEqual("value2", result.ElementAt(1));
-        }
-
-        [TestMethod]
-        public void GetById()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            string result = controller.Get(5);
-
-            // Assert
-            Assert.AreEqual("value", result);
-        }
 
         [TestMethod]
         public void Post()
         {
-            // Arrange
-            ValuesController controller = new ValuesController();
 
-            // Act
-            controller.Post(new ReceiptData());
+            var error = "";
+            var result = false;
+            try
+            {
 
-            // Assert
+                // Arrange
+                ValuesController controller = new ValuesController();
+
+                // Act
+                controller.Post(new ReceiptData()
+                {
+                    clubName = "TestClub",
+                    isName = "Test Issuer",
+                    recName = "Test Recipient",
+                    recEmail = "angeloperera@gmail.com",
+                    isSig = new List<SigData>(),
+                    items = new List<ReceiptItem>()
+                    {
+                        new ReceiptItem()
+                        {
+                            cost = 1,
+                            name = "a item",
+                            price = 1,
+                            qty = 1
+                        }
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                error = e.Message;
+            }    
+        
+
+        // Assert
+            Assert.IsTrue(result, "Error with Receipt API " + error);
         }
 
-        [TestMethod]
-        public void Put()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            controller.Put(5, "value");
-
-            // Assert
-        }
-
-        [TestMethod]
-        public void Delete()
-        {
-            // Arrange
-            ValuesController controller = new ValuesController();
-
-            // Act
-            controller.Delete(5);
-
-            // Assert
-        }
+        
     }
 }

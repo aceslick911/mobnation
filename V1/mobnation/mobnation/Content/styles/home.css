@@ -1,0 +1,141 @@
+.mn-home {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -142px;
+}
+.mn-home > .header {
+  display: block;
+  min-height: 100px;
+  text-align: center;
+}
+.mn-home > .header > img {
+  float: left;
+}
+.mn-home > .header > .search {
+  display: inline-block;
+  width: 50%;
+  margin-top: 26px;
+}
+.mn-home > .header > .search input {
+  width: 96%;
+  margin-right: -25px;
+  font-size: 23px;
+  border: 1px solid #383838;
+  padding: 1px 4px;
+}
+.mn-home > .header > .search > .fa-search {
+  color: #383838;
+  font-size: 20px;
+}
+.mn-home > .header > .search > .fa-search:hover {
+  color: #5ebbe4;
+}
+.mn-home .body .cards-list .profile-card {
+  margin: 5px;
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 110px;
+  border: 1px solid #383838;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.mn-home .body .cards-list .profile-card.create {
+  border: 2px dotted #5ebbe4;
+  cursor: default !important;
+  outline: none !important;
+}
+.mn-home .body .cards-list .profile-card.create:hover {
+  box-shadow: 0px 0px 5px yellow;
+}
+.mn-home .body .cards-list .profile-card.create input {
+  outline: 1px solid #383838;
+  background: transparent;
+  width: 180px;
+  padding: 2px 5px;
+  border: none;
+}
+.mn-home .body .cards-list .profile-card.create input:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.mn-home .body .cards-list .profile-card.create input::-webkit-input-placeholder {
+  color: black;
+}
+.mn-home .body .cards-list .profile-card.create input:-moz-placeholder {
+  color: black;
+}
+.mn-home .body .cards-list .profile-card.create input::-moz-placeholder {
+  color: black;
+}
+.mn-home .body .cards-list .profile-card.create input:-ms-input-placeholder {
+  color: black;
+}
+.mn-home .body .cards-list .profile-card.create .dark {
+  color: black;
+}
+.mn-home .body .cards-list .profile-card.create .white {
+  background-color: #ffffff;
+  color: black;
+}
+.mn-home .body .cards-list .profile-card.create .card-title {
+  bottom: 2px;
+}
+.mn-home .body .cards-list .profile-card:hover {
+  outline: 2px solid #5ebbe4;
+  cursor: pointer;
+}
+.mn-home .body .cards-list .profile-card > .thumbnail {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  height: 100px;
+  width: 100px;
+  border: 1px solid #d1d1d1;
+  text-align: center;
+  background-color: white;
+  overflow: hidden;
+}
+.mn-home .body .cards-list .profile-card > .thumbnail.nologo {
+  background-image: url(/content/images/mobnation-hand-medium.png);
+  background-repeat: no-repeat;
+  background-position: 30px 20px;
+}
+.mn-home .body .cards-list .profile-card > .thumbnail i {
+  font-size: 35px;
+  color: white;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.61);
+  margin-left: 6px;
+  margin-top: 30px;
+}
+.mn-home .body .cards-list .profile-card > .thumbnail img {
+  width: 100%;
+}
+.mn-home .body .cards-list .profile-card .dark {
+  background-image: url('/Content/images/mobnation-v1-profile-page-bg.png?');
+  color: black;
+}
+.mn-home .body .cards-list .profile-card .white {
+  background-color: #ebebeb;
+  color: black;
+}
+.mn-home .body .cards-list .profile-card .top-section {
+  height: 55px;
+  padding-left: 110px;
+  position: relative;
+}
+.mn-home .body .cards-list .profile-card .bottom-section {
+  height: 55px;
+  padding-left: 110px;
+  position: relative;
+  text-align: center;
+}
+.mn-home .body .cards-list .profile-card .bottom-section .mn-button {
+  margin-top: 15px;
+}
+.mn-home .body .cards-list .profile-card .card-title {
+  position: absolute;
+  bottom: 0px;
+}

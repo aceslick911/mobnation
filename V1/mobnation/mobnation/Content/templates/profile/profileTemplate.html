@@ -6,28 +6,30 @@
         </div>
         <div class="mobnation-button" data-bind="click: function () { hasher.setHash(''); }"></div>
         <div class="profile-headers">
-            <div class="title">Monash Kickboxing</div>
-            <div class="sub-title">Monash University Kickboxing Club</div>
-            <div class="head-container contact" data-bind="expandMore: { left: 0, top: 0, width: 10, height: 200 }">
+            <div class="title" data-bind="text:title()">Monash Kickboxing</div>
+            <div class="sub-title" data-bind="text: header()">Monash University Kickboxing Club</div>
+            <div class="head-container contact" data-bind="expandMore: { left: 0, top: 0, width: 10, height: 400 }">
                 <div class="thumbnail">
-                    <img id="img-contact" src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/kacey-image.jpg" />
+                    <img id="img-contact" src="" data-bind="    attr: { 'src': contactLogo() }" />
                     <div class="mn-caption">Contact</div>
-                     <div class="dropzone" data-bind="dropZone: '#img-contact'"></div>
+                    <div class="edit-toggle"><i class="fa fa-camera"></i></div>
+                    <div class="dropzone" data-bind="dropZone: '#img-contact'"></div>
                 </div>
-                <div class="details">Kacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongChongKacey ChongChongKacey ChongChongKacey ChongChongKacey Chong</div>
+                <div class="details" data-bind="html: contact()">Kacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongChongKacey ChongChongKacey ChongChongKacey ChongChongKacey Chong</div>
                 <div class="more-toggle"></div>
-                <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+                
                 <div class="detail-fade"></div>
             </div>
             <div class="head-container about" data-bind="expandMore: { left: 0, top: 0, width: 10, height: 400 }">
                 <div class="thumbnail">
-                    <img id="img-about" src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/class-image.jpg" />
+                    <img id="img-about"  data-bind="    attr: { 'src': aboutLogo() }" src="" />
                     <div class="mn-caption">About</div>
-                     <div class="dropzone" data-bind="dropZone: '#img-about'"></div>
+                <div class="edit-toggle"><i class="fa fa-camera"></i></div>
+                    <div class="dropzone" data-bind="dropZone: '#img-about'"></div>
+                    
                 </div>
-                <div class="details">Monash University Kickboxing ClubMonash University Kickboxing ClubMonash Unive Kickboxing ClubMonash University Kickboxing ClubMonash Unive Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonash University Kickboxing Club</div>
+                <div class="details" data-bind="html: about()">Monash University Kickboxing ClubMonash University Kickboxing ClubMonash Unive Kickboxing ClubMonash University Kickboxing ClubMonash Unive Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonash University Kickboxing Club</div>
                 <div class="more-toggle"></div>
-                <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
                 <div class="detail-fade"></div>
             </div>
         </div>

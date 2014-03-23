@@ -32,5 +32,10 @@ namespace EmailEntities
         public string recEmail { get; set; }
         public string isName { get; set; }
         public List<SigData> isSig { get; set; }
+
+
+        public string profileLogo { get; set; }
+        public string clubName { get; set; }
+        public string total { get; set; }
     }
 }

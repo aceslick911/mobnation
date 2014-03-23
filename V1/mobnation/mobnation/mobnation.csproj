@@ -197,6 +197,18 @@
     <Content Include="Content\scripts\bindings\signaturePadBinding.js">
       <DependentUpon>signaturePadBinding.ts</DependentUpon>
     </Content>
+    <Content Include="Content\styles\colors.css">
+      <DependentUpon>colors.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\common.css">
+      <DependentUpon>common.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\home.css">
+      <DependentUpon>home.less</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\profile.css">
+      <DependentUpon>profile.less</DependentUpon>
+    </Content>
     <Content Include="Scripts\dropzone.js" />
     <Content Include="Scripts\signature-pad\assets\journal.eot" />
     <Content Include="Scripts\signature-pad\assets\journal.ttf" />
@@ -226,6 +238,10 @@
     <Content Include=".ebextensions\MyAppSupport.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\styles\colors.less" />
+    <Content Include="Content\styles\profile.less" />
+    <Content Include="Content\styles\home.less" />
+    <Content Include="Content\styles\common.less" />
     <None Include="Properties\PublishProfiles\mobnation.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\crossroads.js" />

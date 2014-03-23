@@ -1,0 +1,72 @@
+﻿
+@import 'colors.less';
+
+
+
+//Common styles
+html, body {
+    font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    height: 100%;
+    margin: 0;
+    line-height: 1.42857143;
+    font-size: 14px;
+    color: #333;
+}
+
+//Include padding in box sizes
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.footer {
+    border-top: 1px solid @col-mn-light-grey;
+    height: 142px;
+    margin-top: 20px;
+}
+
+.mn-button {
+    background-color: darken( @col-mn-blue, 20%);
+    border: 1px solid white;
+    padding: 4px 7px;
+    color: white;
+    font-size: 11px;
+    .borderRadius(3px);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover {
+        background-color: @col-mn-blue;
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}
+
+.expanded {
+    box-shadow: 0px 0px 5px black;
+}
+
+
+.overflowed {
+    .more-toggle {
+        display: block !important;
+    }
+}
+
+.editable {
+    .head-container, .product-card {
+        &:hover .edit-toggle {
+            display: block !important;
+            
+        color: @col-mn-blue;
+        }
+    }
+}

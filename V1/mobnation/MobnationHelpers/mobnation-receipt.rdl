@@ -37,14 +37,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="ClubLogo">
+      <Image Name="Logo">
         <Source>External</Source>
-        <Value>=Parameters!ClubLogo.Value</Value>
+        <Value>=Parameters!clubLogoUrl.Value</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0mm</Top>
-        <Left>0mm</Left>
-        <Height>33.3375mm</Height>
-        <Width>39.42292mm</Width>
+        <Top>0.70908mm</Top>
+        <Left>0.4445mm</Left>
+        <Height>37.30625mm</Height>
+        <Width>40.91869mm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -52,37 +52,34 @@
           </Border>
         </Style>
       </Image>
-      <Textbox Name="Textbox1">
+      <Textbox Name="Textbox2">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Date:</Value>
+                <Value>Items, Quantity,	Price,	Amount</Value>
                 <Style />
               </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
               <TextRun>
-                <Value>=Parameters!ReceiptDate.Value</Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value> Receipt Number:</Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!ReceiptNumber.Value</Value>
+                <Value>=Parameters!ReceiptItems.Value</Value>
                 <Style />
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>13.93825mm</Top>
-        <Left>43.307mm</Left>
-        <Height>13.22917mm</Height>
-        <Width>103.27216mm</Width>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>12.35075mm</Top>
+        <Left>43.57158mm</Left>
+        <Height>42.33333mm</Height>
+        <Width>103.00758mm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -94,8 +91,84 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Total Paid: </Value>
+                <Style>
+                  <FontSize>22pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!total.Value</Value>
+                <Style>
+                  <FontSize>22pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>63.9445mm</Top>
+        <Left>45.42366mm</Left>
+        <Height>20.10833mm</Height>
+        <Width>101.1555mm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="ReportTitle2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!ClubName.Value</Value>
+                <Style>
+                  <FontFamily>Verdana</FontFamily>
+                  <FontSize>20pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+        <rd:DefaultName>ReportTitle</rd:DefaultName>
+        <Top>38.57625mm</Top>
+        <Left>0.04445cm</Left>
+        <Height>45.47658mm</Height>
+        <Width>40.91869mm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>57.15mm</Height>
+    <Height>87.57708mm</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -118,13 +191,109 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ClubLogo</Prompt>
     </ReportParameter>
+    <ReportParameter Name="total">
+      <DataType>String</DataType>
+      <Prompt>total</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReceiptItems">
+      <DataType>String</DataType>
+      <Prompt>ReceiptItems</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ClubName">
+      <DataType>String</DataType>
+      <Prompt>ClubName</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="signName">
+      <DataType>String</DataType>
+      <Prompt>signName</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="clubLogoUrl">
+      <DataType>String</DataType>
+      <Prompt>clubLogoUrl</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <Width>152.4mm</Width>
   <Page>
     <PageFooter>
-      <Height>11.43mm</Height>
+      <Height>49.26542mm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="ClubLogo">
+          <Source>External</Source>
+          <Value>=Parameters!ClubLogo.Value</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>5.02709mm</Top>
+          <Left>13.49376mm</Left>
+          <Height>33.3375mm</Height>
+          <Width>39.42292mm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Signed By: </Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
+                  <Value>=Parameters!signName.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Date:</Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
+                  <Value>=Parameters!ReceiptDate.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Receipt Number:</Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
+                  <Value>=Parameters!ReceiptNumber.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>16.93334mm</Top>
+          <Left>61.29867mm</Left>
+          <Height>13.22917mm</Height>
+          <Width>91.10133mm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>

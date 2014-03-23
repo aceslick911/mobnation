@@ -24,5 +24,8 @@ declare module MNE {
         recEmail: string;
         isName: string;
         isSig: MNE.SigData[];
+        profileLogo: string;
+        clubName: string;
+        total: string;
     }
 }

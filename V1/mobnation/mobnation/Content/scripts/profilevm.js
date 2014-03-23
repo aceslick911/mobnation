@@ -3,11 +3,15 @@ var ProfileVM = (function () {
     function ProfileVM(name) {
         this.receipt = new ReceiptVM();
         this.newProduct = ko.observable(new ProductVM("", "", "", "", this.receipt));
+        this.title = ko.observable("");
+        this.header = ko.observable("");
         this.profileLogo = ko.observable("");
+        this.aboutLogo = ko.observable("");
+        this.contactLogo = ko.observable("");
+        this.about = ko.observable("");
+        this.contact = ko.observable("");
         this.products = ko.observableArray([]);
         this.name = name;
-
-        this.products.push(new ProductVM("7-Day Free Trial", "Free X7 Day trial available only to new students and for a limited time. Join now to find out the many benefits to offer at monash kickboxing!", "Free", "Special Offer", this.receipt));
     }
     ProfileVM.prototype.addProduct = function () {
         this.products.push(this.newProduct());
@@ -110,7 +114,6 @@ var ReceiptVM = (function () {
         this.sigData([]);
         this.items([]);
         this.receiptExpanded(false);
-        this.receiptActive(false);
     };
 
     ReceiptVM.prototype.receiptData = function () {
@@ -126,7 +129,10 @@ var ReceiptVM = (function () {
             recName: this.recName(),
             recEmail: this.recEmail(),
             isName: this.isName(),
-            isSig: this.sigData()
+            isSig: this.sigData(),
+            clubName: rootVM.profileVM().name,
+            profileLogo: rootVM.profileVM().profileLogo(),
+            total: String(this.totalCost())
         };
     };
 

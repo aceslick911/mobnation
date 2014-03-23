@@ -8,7 +8,15 @@ class ProfileVM {
 
     public newProduct = ko.observable( new ProductVM("", "", "", "", this.receipt) );
 
+    public title = ko.observable("");
+    public header = ko.observable("");
     public profileLogo = ko.observable("");
+    public aboutLogo = ko.observable("");
+    public contactLogo = ko.observable("");
+
+    public about = ko.observable("");
+
+    public contact = ko.observable("");
 
     public products: KnockoutObservableArray<ProductVM> = ko.observableArray<ProductVM>([]);
 
@@ -16,8 +24,7 @@ class ProfileVM {
 
         this.name = name;
 
-        this.products.push(new ProductVM("7-Day Free Trial", "Free X7 Day trial available only to new students and for a limited time. Join now to find out the many benefits to offer at monash kickboxing!", "Free", "Special Offer", this.receipt));
-
+        
     }
 
     addProduct() {
@@ -135,7 +142,6 @@ class ReceiptVM {
         this.sigData([]);
         this.items([]);
         this.receiptExpanded(false);
-        this.receiptActive(false);
     }
 
     receiptData(): MNE.ReceiptData {
@@ -151,7 +157,11 @@ class ReceiptVM {
             recName: this.recName(),
             recEmail: this.recEmail(),
             isName: this.isName(),
-            isSig: this.sigData()
+            isSig: this.sigData(),
+            clubName: rootVM.profileVM().name,
+            profileLogo: rootVM.profileVM().profileLogo(),
+            total: String(this.totalCost()),
+            
         };
     }
 
