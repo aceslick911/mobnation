@@ -1,0 +1,8 @@
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\bin\Debug\MobnationHelpers.dll
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\bin\Debug\MobnationHelpers.pdb
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\bin\Debug\EmailEntities.dll
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\bin\Debug\T4TS.Attributes.dll
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\bin\Debug\EmailEntities.pdb
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\obj\Debug\MobnationHelpers.csprojResolveAssemblyReference.cache
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\obj\Debug\MobnationHelpers.dll
+c:\Git\MobNation\V1\mobnation\MobnationHelpers\obj\Debug\MobnationHelpers.pdb

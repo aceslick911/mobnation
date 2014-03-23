@@ -3,21 +3,21 @@
 ****************************************************************************/
 
 declare module MNE {
-    /** Generated from mobnation.ReceiptItem **/
+    /** Generated from EmailEntities.ReceiptItem **/
     export interface ReceiptItem {
         name: string;
         qty: number;
         price: number;
         cost: number;
     }
-    /** Generated from mobnation.SigData **/
+    /** Generated from EmailEntities.SigData **/
     export interface SigData {
         lx: number;
         ly: number;
         mx: number;
         my: number;
     }
-    /** Generated from mobnation.ReceiptData **/
+    /** Generated from EmailEntities.ReceiptData **/
     export interface ReceiptData {
         items: MNE.ReceiptItem[];
         recName: string;

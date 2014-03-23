@@ -8,3 +8,5 @@ V1/mobnation/mobnation.Tests/obj
 V1/mobnation/EmailService/obj
 V1/mobnation/EmailService/bin
 assets/images/Source/*.idlk
+V1/mobnation/EmailService/EmailService.exe.config
+V1/mobnation/mobnation.Tests/App.config

@@ -1,6 +1,6 @@
 ﻿namespace EmailService
 {
-    partial class Service1
+    partial class MobNationEmailService
     {
         /// <summary> 
         /// Required designer variable.

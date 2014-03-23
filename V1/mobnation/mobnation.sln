@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobnationEntities", "EmailEntities\MobnationEntities.csproj", "{A691EB31-60AA-4031-BD5F-3D50BAEF7F54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobnationHelpers", "MobnationHelpers\MobnationHelpers.csproj", "{FF339B37-5E25-4E82-8D78-9424180E2192}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{A691EB31-60AA-4031-BD5F-3D50BAEF7F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A691EB31-60AA-4031-BD5F-3D50BAEF7F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A691EB31-60AA-4031-BD5F-3D50BAEF7F54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF339B37-5E25-4E82-8D78-9424180E2192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF339B37-5E25-4E82-8D78-9424180E2192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF339B37-5E25-4E82-8D78-9424180E2192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF339B37-5E25-4E82-8D78-9424180E2192}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -44,6 +44,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -153,7 +154,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\entities\ReceiptEntities.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JasmineController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -174,16 +174,6 @@
     <Content Include="Content\images\mobnation-white-hand.png" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
-    <Content Include="Content\scripts\entities\T4TS.d.ts">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>T4TS.tt</DependentUpon>
-    </Content>
-    <Content Include="Content\scripts\entities\T4TS.tt.settings.t4" />
-    <Content Include="Content\scripts\entities\T4TS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>T4TS.d.ts</LastGenOutput>
-    </Content>
     <TypeScriptCompile Include="Content\scripts\bindings\signaturePadBinding.ts" />
     <Content Include="Content\scripts\bindings\signaturePadBinding.js">
       <DependentUpon>signaturePadBinding.ts</DependentUpon>
@@ -290,6 +280,10 @@
     <ProjectReference Include="..\EmailEntities\MobnationEntities.csproj">
       <Project>{a691eb31-60aa-4031-bd5f-3d50baef7f54}</Project>
       <Name>MobnationEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobnationHelpers\MobnationHelpers.csproj">
+      <Project>{ff339b37-5e25-4e82-8d78-9424180e2192}</Project>
+      <Name>MobnationHelpers</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
