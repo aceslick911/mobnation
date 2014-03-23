@@ -22,9 +22,9 @@ namespace EmailService
             ServiceInstaller serviceInstaller = new ServiceInstaller();
 
             //# Service Account Information
-            serviceProcessInstaller.Account = ServiceAccount.User;
-            serviceProcessInstaller.Username = @".\Administrator";
-            serviceProcessInstaller.Password = @"%k=@F*$ETj";
+            serviceProcessInstaller.Account = ServiceAccount.LocalSystem;
+            serviceProcessInstaller.Username = null;
+            serviceProcessInstaller.Password = null;
 
             //# Service Information
             serviceInstaller.DisplayName = "MobNation Email Service";

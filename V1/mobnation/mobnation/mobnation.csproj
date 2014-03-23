@@ -219,6 +219,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\styles\styles.less" />
     <Content Include="aws-sessionprovider-sample.config" />
+    <Content Include=".ebextensions\MyAppSupport.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\mobnation.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\crossroads.js" />
@@ -284,7 +287,6 @@
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include=".ebextensions\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
     <Folder Include="Images\" />
