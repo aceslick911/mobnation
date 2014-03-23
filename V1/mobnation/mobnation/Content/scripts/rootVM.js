@@ -11,6 +11,11 @@ var RootVM = (function () {
         this.profileVM = ko.observable(null);
         this.isMobile = false;
         this.homeVM = new HomeVM();
+
+        var mkb = new ProfileVM("monashkickboxing");
+        mkb.profileLogo("https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/case-monKickboxing-logo-large.png");
+
+        this.homeVM.profiles.push(mkb);
     }
     RootVM.prototype.initialize = function () {
         this.initializeEnvironment();
@@ -33,7 +38,12 @@ var RootVM = (function () {
             hasher.setHash('');
         });
         crossroads.addRoute('{id}', function (id) {
-            _this.profileVM(new ProfileVM(id));
+            var prof = _.find(_this.homeVM.profiles(), function (profile) {
+                return profile.name == id;
+            });
+
+            _this.profileVM(prof);
+
             _this.activeTemplate('profile/profileTemplate');
         });
 

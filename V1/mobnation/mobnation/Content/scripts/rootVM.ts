@@ -22,6 +22,11 @@ class RootVM {
 
         this.homeVM = new HomeVM();
 
+        var mkb = new ProfileVM("monashkickboxing");
+        mkb.profileLogo("https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/case-monKickboxing-logo-large.png");
+
+        this.homeVM.profiles.push(mkb);
+
     }
 
     initialize() {
@@ -48,7 +53,12 @@ class RootVM {
             hasher.setHash('');
         });
         crossroads.addRoute('{id}', (id: any) => {
-            this.profileVM(new ProfileVM(id));
+            var prof = _.find(this.homeVM.profiles(), profile=> {
+                return profile.name == id;
+            });
+
+            this.profileVM(prof);
+
             this.activeTemplate('profile/profileTemplate');
         });
 

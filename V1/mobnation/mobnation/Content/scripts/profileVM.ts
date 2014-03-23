@@ -2,21 +2,64 @@
 
 class ProfileVM {
 
-    public ProfileID: string;
+    public name: string;
 
-    public receipt: ReceiptVM;
+    public receipt: ReceiptVM = new ReceiptVM();
+
+    public newProduct = ko.observable( new ProductVM("", "", "", "", this.receipt) );
+
+    public profileLogo = ko.observable("");
 
     public products: KnockoutObservableArray<ProductVM> = ko.observableArray<ProductVM>([]);
 
-    constructor(profileId: any) {
+    constructor(name: string) {
 
-        this.ProfileID = profileId;
+        this.name = name;
 
-        this.receipt = new ReceiptVM();
-
-        this.products.push(new ProductVM("7-Day Free Trial", "Free 7 Day trial available only to new students and for a limited time", "Free", "Special Offer"));
+        this.products.push(new ProductVM("7-Day Free Trial", "Free X7 Day trial available only to new students and for a limited time. Join now to find out the many benefits to offer at monash kickboxing!", "Free", "Special Offer", this.receipt));
 
     }
+
+    addProduct() {
+        this.products.push(this.newProduct());
+        this.newProduct(new ProductVM("", "", "", "", this.receipt));
+    }
+
+    editProduct(product: ProductVM) {
+        this.newProduct(product);                                       
+        this.products.remove(product);
+    }
+
+    addToReceipt(product: ProductVM) {
+
+        var theProduct = _.find(this.receipt.items(), receipt=> receipt.product === product);
+
+        if (theProduct != null) {
+            theProduct.plusOne();
+        } else {
+
+            this.receipt.items.push( new receiptItem( product));
+        }
+
+    }
+    removeFromReceipt(product: ProductVM) {
+
+        var theProduct = _.find(this.receipt.items(), receipt=> receipt.product === product);
+
+        if (theProduct != null) {
+            theProduct.minusOne();
+            if(theProduct.qty()==0){
+
+                this.receipt.items.remove(theProduct);
+
+            }
+        } else {
+
+            this.receipt.items.push(new receiptItem(product));
+        }
+    }
+
+
 }
 class ProductVM {
 
@@ -26,19 +69,30 @@ class ProductVM {
     public price = ko.observable("");
     public isMode = ko.observable(false);
 
-    public badgeNumber = ko.observable(0);
+    public badgeNumber: KnockoutComputed<number>;
 
-    constructor(aName:string, aDesc:string, aPrice:string, aProductType:string) {
+    constructor(aName:string, aDesc:string, aPrice:string, aProductType:string, receipt:ReceiptVM) {
         this.name(aName);
         this.desc(aDesc);
         this.price(aPrice);
         this.productType(aProductType);
+
+        this.badgeNumber = ko.computed(() => {
+            var theProduct = _.find(receipt.items(), rec=> rec.product === this);
+
+            if (theProduct == null) {
+                return 0;
+            } else {
+                return theProduct.qty();
+            }
+
+        });
     }
 }
 
 class ReceiptVM {
 
-    receiptActive = ko.observable(false);
+    receiptActive: KnockoutComputed<boolean>;
     receiptExpanded = ko.observable(false);
     
 
@@ -53,7 +107,7 @@ class ReceiptVM {
     totalCost: KnockoutComputed<number>;
 
     constructor() {
-        this.items([new receiptItem("Test", 5)]);
+        this.items([]);
 
         this.totalQty = ko.computed(() => {
             var val = 0;
@@ -68,6 +122,9 @@ class ReceiptVM {
                 val = Number(val + item.cost());
             });
             return val;
+        });
+        this.receiptActive = ko.computed(() => {
+            return this.totalQty() > 0;
         });
     }
 
@@ -127,19 +184,22 @@ class receiptItem {
     price: number;
     cost: KnockoutComputed<number>;
 
+    product: ProductVM;
 
-    constructor(name: string, cost: number) {
-        this.price = cost;
-        this.name = name;
+
+    constructor(aProduct: ProductVM) {
+        this.product = aProduct;
+        this.price = isNaN(parseFloat(aProduct.price().replace("$", "")) ) ? 0 : parseFloat(aProduct.price().replace("$",""));
+        this.name = aProduct.name();
 
 
         this.cost = ko.computed(() => {
-            return this.qty() * this.price;
+            return parseInt(String(this.qty()), 10) * parseFloat(String(this.price));
         });
     }
 
     minusOne() {
-        this.qty(Math.max(1, Number(this.qty() - 1)));
+        this.qty(Math.max(0, Number(this.qty() - 1)));
     }
     plusOne() {
         this.qty(Number(this.qty() + 1));

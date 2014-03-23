@@ -1,30 +1,34 @@
 ﻿<div class="mn-profile" data-bind="with: profileVM()">
     <div class="header">
-        <div class="thumbnail">
-            <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/case-monKickboxing-logo-large.png" />
-            <div class="dropzone" data-bind="dropZone: true"></div>
+         <div class="thumbnail" data-bind="css: { 'nologo': profileLogo() == '' }">
+                     <img id="img-profile" src="" data-bind="    attr: { 'src': profileLogo() }" />
+            <div class="dropzone" data-bind="dropZone: '#img-profile'"></div>
         </div>
         <div class="mobnation-button" data-bind="click: function () { hasher.setHash(''); }"></div>
         <div class="profile-headers">
             <div class="title">Monash Kickboxing</div>
             <div class="sub-title">Monash University Kickboxing Club</div>
-            <div class="head-container contact"  data-bind="expandMore: { left: 0, top: 0, width: 10, height: 200 }">
+            <div class="head-container contact" data-bind="expandMore: { left: 0, top: 0, width: 10, height: 200 }">
                 <div class="thumbnail">
-                    <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/kacey-image.jpg" />
+                    <img id="img-contact" src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/kacey-image.jpg" />
                     <div class="mn-caption">Contact</div>
+                     <div class="dropzone" data-bind="dropZone: '#img-contact'"></div>
                 </div>
                 <div class="details">Kacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongKacey ChongChongKacey ChongChongKacey ChongChongKacey ChongChongKacey Chong</div>
                 <div class="more-toggle"></div>
                 <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+                <div class="detail-fade"></div>
             </div>
-            <div class="head-container about">
+            <div class="head-container about" data-bind="expandMore: { left: 0, top: 0, width: 10, height: 400 }">
                 <div class="thumbnail">
-                    <img src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/class-image.jpg" />
+                    <img id="img-about" src="https://mobnation.s3-ap-southeast-2.amazonaws.com/assets/profiles/monashkickboxing/class-image.jpg" />
                     <div class="mn-caption">About</div>
+                     <div class="dropzone" data-bind="dropZone: '#img-about'"></div>
                 </div>
-                <div class="details">Monash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonash University Kickboxing Club</div>
+                <div class="details">Monash University Kickboxing ClubMonash University Kickboxing ClubMonash Unive Kickboxing ClubMonash University Kickboxing ClubMonash Unive Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonashClubMonash University Kickboxing ClubMonash University Kickboxing Club</div>
                 <div class="more-toggle"></div>
                 <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+                <div class="detail-fade"></div>
             </div>
         </div>
     </div>
@@ -32,7 +36,7 @@
         <div class="receipt" data-bind="visible: receipt.receiptActive(), with: receipt">
             <div class="header">New Receipt</div>
             <div class="items">
-                <label>5 Items</label>
+                <label data-bind="text: totalQty() + ' Items'"></label>
                 <button class="mn-button" data-bind="click: clearReceipt"><i class="fa fa-trash-o"></i>Cancel Receipt</button>
             </div>
             <div class="summary">
@@ -54,9 +58,9 @@
                     <div class="product">
                         <div class="product-name" data-bind="text: name"></div>
                         <div class="product-qty">
-                            <div class="mn-button" data-bind="click: minusOne"><i class="fa fa-minus"></i></div>
+                            <div class="mn-button" data-bind="click: function () { $parents[1].removeFromReceipt($data.product) }"><i class="fa fa-minus"></i></div>
                             <input type="text" placeholder="Name" data-bind="value: qty, valueUpdate: 'keyup'">
-                            <div class="mn-button" data-bind="click: plusOne"><i class="fa fa-plus"></i></div>
+                            <div class="mn-button" data-bind="click: function () { $parents[1].addToReceipt($data.product) }"><i class="fa fa-plus"></i></div>
                         </div>
                         <div class="product-price" data-bind="text: '$' + price"></div>
                         <div class="product-cost" data-bind="text: '$' + cost()"></div>
@@ -110,44 +114,55 @@
             <div class="heading">Products</div>
             <div class="product-container">
 
-                <div class="product-card create">
+                <div class="product-card create" data-bind="expandMore: { left: 0, top: -100, width: 0, height: 200, selectors: '.product-desc textarea', target: newProduct }, with: newProduct()">
                     <div class="left-section">
                         <div class="product-type">
-                            <input type="text" placeholder="Product Type">
+                            <input type="text" placeholder="Product Type" data-bind="value: productType, valueUpdate: 'keyup'">
                         </div>
                         <div class="product-title">
-                            <input type="text" placeholder="Product Name">
+                            <input type="text" placeholder="Product Name" data-bind="value: name, valueUpdate: 'keyup'">
                         </div>
                         <div class="product-desc">
-                            <input type="text" placeholder="Product Description">
+                            <textarea data-bind="value: desc, valueUpdate: 'keyup'" placeholder="Product Description"></textarea>
+
                         </div>
                     </div>
                     <div class="right-section">
                         <div class="product-price">
-                            <input type="text" placeholder="Price">
+                            <input type="text" placeholder="Price" data-bind="value: price, valueUpdate: 'keyup'">
                         </div>
-                        <button class="mn-button"><i class="fa fa-plus"></i>New Product</button>
-                        <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
+                        <button class="mn-button" data-bind="click: $parent.addProduct.bind($parent)"><i class="fa fa-plus"></i>New Product</button>
+
                     </div>
 
 
                 </div>
 
                 <!-- ko foreach: products -->
-                <div class="product-card" data-bind="expandMore: {left:-50, top:-50, width:50, height:100}">
-                    <div class="left-section">
-                        <div class="product-type">Special Offer</div>
-                        <div class="product-title">7-Day Free Trial</div>
-                        <div class="product-desc">Free 7-Day for eligable new members of Monash Kickboxing</div>
-                        <div class="more-toggle"></div>
+                <div class="product-card" data-bind="expandMore: { left: 0, top: -100, width: 0, height: 200 }">
+                    <div class="wrap">
+                        <div class="left-section">
+                            <div class="product-type" data-bind="text: productType">Special Offer</div>
+                            <div class="product-title" data-bind="text: name">7-Day Free Trial</div>
+                            <div class="product-desc" data-bind="text: desc">Free 7-Day for eligable new members of Monash Kickboxing</div>
+              
+                        </div>       
+                        <div class="detail-fade"></div>
+                        <div class="more-toggle"></div>   
+                        <div class="right-section">
+                            <div class="product-price" data-bind="text: price">Free</div>
+                        
+                            <button class="mn-button"  data-bind="visible: badgeNumber() == 0,    click: function () { $parent.addToReceipt($data) }"><i class="fa fa-file"></i>Add To Receipt</button>
+                            <div class="quantity-buttons" data-bind="visible: badgeNumber()>0">
+                                <button class="mn-button add" data-bind="click: function () { $parent.addToReceipt($data) }"><i class="fa fa-plus"></i></button>
+                                <button class="mn-button subtract" data-bind="click: function () { $parent.removeFromReceipt($data) }"><i class="fa fa-minus"></i></button>
+                            </div>
+
+                            <div class="edit-toggle" data-bind="click: function () { $parent.editProduct($data) }"><i class="fa fa-pencil"></i></div>
+                        </div>
                     </div>
-                    <div class="right-section">
-                        <div class="product-price">Free</div>
-                        <button class="mn-button" data-bind="click: function () { receipt.receiptActive(true); }"><i class="fa fa-file"></i>Start Receipt</button>
-                        <div class="edit-toggle"><i class="fa fa-pencil"></i></div>
-                    </div>
-                    <div class="banner-text">
-                        <div class="number">2</div>
+                    <div class="banner-text" data-bind="visible: badgeNumber() > 0 ">
+                        <div class="number" data-bind="text: badgeNumber"></div>
                     </div>
                 </div>
                 <!-- /ko -->

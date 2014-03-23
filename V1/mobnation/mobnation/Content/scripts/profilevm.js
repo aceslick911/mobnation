@@ -1,27 +1,75 @@
 /// <reference path="../../Scripts/typings/common.d.ts" />
 var ProfileVM = (function () {
-    function ProfileVM(profileId) {
-        this.products = ko.observableArray([]);
-        this.ProfileID = profileId;
-
+    function ProfileVM(name) {
         this.receipt = new ReceiptVM();
+        this.newProduct = ko.observable(new ProductVM("", "", "", "", this.receipt));
+        this.profileLogo = ko.observable("");
+        this.products = ko.observableArray([]);
+        this.name = name;
 
-        this.products.push(new ProductVM("7-Day Free Trial", "Free 7 Day trial available only to new students and for a limited time", "Free", "Special Offer"));
+        this.products.push(new ProductVM("7-Day Free Trial", "Free X7 Day trial available only to new students and for a limited time. Join now to find out the many benefits to offer at monash kickboxing!", "Free", "Special Offer", this.receipt));
     }
+    ProfileVM.prototype.addProduct = function () {
+        this.products.push(this.newProduct());
+        this.newProduct(new ProductVM("", "", "", "", this.receipt));
+    };
+
+    ProfileVM.prototype.editProduct = function (product) {
+        this.newProduct(product);
+        this.products.remove(product);
+    };
+
+    ProfileVM.prototype.addToReceipt = function (product) {
+        var theProduct = _.find(this.receipt.items(), function (receipt) {
+            return receipt.product === product;
+        });
+
+        if (theProduct != null) {
+            theProduct.plusOne();
+        } else {
+            this.receipt.items.push(new receiptItem(product));
+        }
+    };
+    ProfileVM.prototype.removeFromReceipt = function (product) {
+        var theProduct = _.find(this.receipt.items(), function (receipt) {
+            return receipt.product === product;
+        });
+
+        if (theProduct != null) {
+            theProduct.minusOne();
+            if (theProduct.qty() == 0) {
+                this.receipt.items.remove(theProduct);
+            }
+        } else {
+            this.receipt.items.push(new receiptItem(product));
+        }
+    };
     return ProfileVM;
 })();
 var ProductVM = (function () {
-    function ProductVM(aName, aDesc, aPrice, aProductType) {
+    function ProductVM(aName, aDesc, aPrice, aProductType, receipt) {
+        var _this = this;
         this.productType = ko.observable("");
         this.name = ko.observable("");
         this.desc = ko.observable("");
         this.price = ko.observable("");
         this.isMode = ko.observable(false);
-        this.badgeNumber = ko.observable(0);
         this.name(aName);
         this.desc(aDesc);
         this.price(aPrice);
         this.productType(aProductType);
+
+        this.badgeNumber = ko.computed(function () {
+            var theProduct = _.find(receipt.items(), function (rec) {
+                return rec.product === _this;
+            });
+
+            if (theProduct == null) {
+                return 0;
+            } else {
+                return theProduct.qty();
+            }
+        });
     }
     return ProductVM;
 })();
@@ -29,14 +77,13 @@ var ProductVM = (function () {
 var ReceiptVM = (function () {
     function ReceiptVM() {
         var _this = this;
-        this.receiptActive = ko.observable(false);
         this.receiptExpanded = ko.observable(false);
         this.recName = ko.observable("");
         this.recEmail = ko.observable("");
         this.isName = ko.observable("");
         this.sigData = ko.observable([]);
         this.items = ko.observableArray([]);
-        this.items([new receiptItem("Test", 5)]);
+        this.items([]);
 
         this.totalQty = ko.computed(function () {
             var val = 0;
@@ -51,6 +98,9 @@ var ReceiptVM = (function () {
                 val = Number(val + item.cost());
             });
             return val;
+        });
+        this.receiptActive = ko.computed(function () {
+            return _this.totalQty() > 0;
         });
     }
     ReceiptVM.prototype.clearReceipt = function () {
@@ -102,18 +152,19 @@ var ReceiptVM = (function () {
 })();
 
 var receiptItem = (function () {
-    function receiptItem(name, cost) {
+    function receiptItem(aProduct) {
         var _this = this;
         this.qty = ko.observable(1);
-        this.price = cost;
-        this.name = name;
+        this.product = aProduct;
+        this.price = isNaN(parseFloat(aProduct.price().replace("$", ""))) ? 0 : parseFloat(aProduct.price().replace("$", ""));
+        this.name = aProduct.name();
 
         this.cost = ko.computed(function () {
-            return _this.qty() * _this.price;
+            return parseInt(String(_this.qty()), 10) * parseFloat(String(_this.price));
         });
     }
     receiptItem.prototype.minusOne = function () {
-        this.qty(Math.max(1, Number(this.qty() - 1)));
+        this.qty(Math.max(0, Number(this.qty() - 1)));
     };
     receiptItem.prototype.plusOne = function () {
         this.qty(Number(this.qty() + 1));

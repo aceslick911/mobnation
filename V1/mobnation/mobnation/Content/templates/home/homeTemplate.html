@@ -1,29 +1,35 @@
-﻿<div class="mn-home">
+﻿<div class="mn-home" data-bind="with:homeVM">
     <div class="header">
         <img  src="/content/images/mobnation-logo-medium.png" alt="mobnation.org" />
-        <div class="search"><input type="text" placeholder="Find Profile" data-bind="value: homeVM.searchText, valueUpdate: 'keypress'"/><i class="fa fa-search"></i></div>
+        <div class="search"><input type="text" placeholder="Find Profile" data-bind="value:searchText, valueUpdate: 'keypress'"/><i class="fa fa-search"></i></div>
     </div>
     <div class="body">
         <div class="cards-list">
             <div class="search-results">
-                 <div class="profile-card create">
+                
+                <div class="profile-card create" data-bind="with: newProfile()">
                     <div class="top-section dark">
                         <div class="card-title"><input type="text" placeholder="New Profile Name"></div>
                     </div>
-                     <div class="bottom-section white">
-                         <button class="mn-button">Create New Profile</button>
-                     </div>
+                    <div class="bottom-section white">
+                        <button class="mn-button">Create New Profile</button>
+                    </div>
                     <div class="thumbnail"><i class="fa fa-plus"></i></div>
                 </div>
-                <div class="profile-card">
+                
+                <!-- ko foreach: profiles -->
+                <div class="profile-card"  data-bind="click: function () { hasher.setHash($data.name); }">
                     <div class="top-section dark">
-                        <div class="card-title">Monash Kickboxing</div>
+                        <div class="card-title" data-bind="text:name">Monash Kickboxing</div>
                     </div>
                     <div class="bottom-section white">
-                         <button class="mn-button" data-bind="click: function () { hasher.setHash('MonashKickboxing'); }">Manage Profile</button>
+                        <div class="mn-button">Manage Profile</div>
                     </div>
-                    <div class="thumbnail"></div>
+                    <div class="thumbnail" data-bind="css: { 'nologo': profileLogo()==''}">
+                        <img src="" data-bind="    attr: { 'src': profileLogo() }"/>
+                    </div>
                 </div>
+                <!-- /ko -->
             </div>
             <div class="new-card"></div>
         </div>
