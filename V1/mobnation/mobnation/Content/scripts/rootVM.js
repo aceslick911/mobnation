@@ -1,7 +1,4 @@
-/// <reference path="../../Scripts/typings/modernizr/modernizr.d.ts" />
-/// <reference path="../../Scripts/typings/knockout/knockout.d.ts" />
-/// <reference path="../../Scripts/typings/jquery/jquery.d.ts" />
-/// <reference path="../../Scripts/typings/crossroads/crossroads.d.ts" />
+/// <reference path="../../Scripts/typings/common.d.ts" />
 /// <reference path="profilevm.ts" />
 /// <reference path="homevm.ts" />
 
@@ -10,6 +7,9 @@ var RootVM = (function () {
         this.activeTemplate = ko.observable("");
         this.profileVM = ko.observable(null);
         this.isMobile = false;
+        this.generateTestingData();
+    }
+    RootVM.prototype.generateTestingData = function () {
         this.homeVM = new HomeVM();
 
         var mkb = new ProfileVM("monashkickboxing");
@@ -32,7 +32,8 @@ var RootVM = (function () {
         mkb.products.push(new ProductVM("Muay Thai Shorts", "Please see a Committee Member in class to order and make payment for your Uniform within 2 weeks of signing up for your Semester or Annual Membership.", "$50", "Clothing", mkb.receipt));
 
         this.homeVM.profiles.push(mkb);
-    }
+    };
+
     RootVM.prototype.initialize = function () {
         this.initializeEnvironment();
         this.setupRoutes();

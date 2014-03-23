@@ -1,5 +1,14 @@
+/// <reference path="rootVM.ts" />
 /// <reference path="../../Scripts/typings/common.d.ts" />
+        
+/*
 
+mobnation.org profile viewmodel
+By Angelo Perera March 2014
+
+ProfileVM - Stores the profile state including active receipts and available products.
+
+*/
 class ProfileVM {
 
     public name: string;

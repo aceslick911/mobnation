@@ -1,11 +1,16 @@
-/// <reference path="../../Scripts/typings/modernizr/modernizr.d.ts" />
-/// <reference path="../../Scripts/typings/knockout/knockout.d.ts" />
-/// <reference path="../../Scripts/typings/jquery/jquery.d.ts" />
-/// <reference path="../../Scripts/typings/crossroads/crossroads.d.ts" />
+/// <reference path="../../Scripts/typings/common.d.ts" />
+
 /// <reference path="profilevm.ts" />
 /// <reference path="homevm.ts" />
 
+ /*
 
+mobnation.org root viewmodel
+By Angelo Perera March 2014
+
+RootVM - Manages # routing, knockout templates, and generates testing data
+
+*/
 
 declare var hasher: any;
 
@@ -19,6 +24,11 @@ class RootVM {
     isMobile: boolean = false;
 
     constructor() {
+        this.generateTestingData();
+
+    }
+
+    generateTestingData() {
 
         this.homeVM = new HomeVM();
 
@@ -42,26 +52,26 @@ class RootVM {
             "Instructor: Fam Chong(MAIA Accredited Martial Arts Instructor)<br/>" +
             "Apprentice Instructor – Level 1: Daniel Whyte(undergoing MAIA Accreditation)<br/>" +
             "Apprentice Instructor – Level 1: Angelo Perera(undergoing MAIA Accreditation)<br/>" +
-            "Apprentice Instructor – Level 1: Anthony Lam(undergoing MAIA Accreditation)<br/>" 
+            "Apprentice Instructor – Level 1: Anthony Lam(undergoing MAIA Accreditation)<br/>"
             );
-        mkb.contact("Join the Monash University Kickboxing Group on Facebook to keep in touch with other Club Members, and get all the latest updates on Club News & Events.<br/>" +    
+        mkb.contact("Join the Monash University Kickboxing Group on Facebook to keep in touch with other Club Members, and get all the latest updates on Club News & Events.<br/>" +
             "http://www.monashkickboxing.com/ <br/>" +
-            "Information, Photos and Kickboxing news <br/ > " + 
-            "Stay up - to - date with Monash Kickboxing! <br/ > " + 
+            "Information, Photos and Kickboxing news <br/ > " +
+            "Stay up - to - date with Monash Kickboxing! <br/ > " +
             "2013 Training Times:    <br/ > " +
             "2 classes per week over 40 weeks <br/ > " +
             "Tuesday	7:30pm - 9:00pm All Levels <br/ > " +
-            "Thursday	7:30pm - 9:00pm All Levels <br/ >" +  
+            "Thursday	7:30pm - 9:00pm All Levels <br/ >" +
             "2013 Fees: <br/ > " +
             "--Membership <br/ > " +
             "Monash Students: $265(Semester / 5mths) $480(Annual / 10mths) <br/ > " +
-            "General Public: $385(Semester / 5mths) $699(Annual / 10mthsl) <br/ > " +     
-            "Club Equipment Provided: Focus mitts, Kickshields, Muay Thai pads, Headguards, skipping ropes.<br/ > " +  
-            "* POST HERE IF YOU WISH TO RESERVE EQUIPMENT TO PURCHASE IN CLASS.*<br/ > " +       
+            "General Public: $385(Semester / 5mths) $699(Annual / 10mthsl) <br/ > " +
+            "Club Equipment Provided: Focus mitts, Kickshields, Muay Thai pads, Headguards, skipping ropes.<br/ > " +
+            "* POST HERE IF YOU WISH TO RESERVE EQUIPMENT TO PURCHASE IN CLASS.*<br/ > " +
             "2013 Training Venue:<br/ > " +
             "Martial Arts Hall, Sports and Recreation Centre <br/ > " +
             "Monash Unversity, Clayton VIC 3800 <br/ > " +
-            "Melways 70 G11 <br/ > " +                        
+            "Melways 70 G11 <br/ > " +
             "For more info visit www.monashkickboxing.com or contact Chief Instructor Kacey Chong at kacey@monashkickboxing.com <br/ >");
 
 
@@ -92,7 +102,6 @@ class RootVM {
 
 
         this.homeVM.profiles.push(mkb);
-
     }
 
     initialize() {
