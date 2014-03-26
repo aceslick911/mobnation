@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MobnationEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MobnationEntitiesStoreContainer">
+    <EntitySet Name="Profiles" EntityType="MobnationEntities.Store.Profiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="MobnationEntities.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Receipts" EntityType="MobnationEntities.Store.Receipts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReceiptItems" EntityType="MobnationEntities.Store.ReceiptItems" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProductProfile" Association="MobnationEntities.Store.ProductProfile">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Profile" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="ProfileReceipt" Association="MobnationEntities.Store.ProfileReceipt">
+      <End Role="Profile" EntitySet="Profiles" />
+      <End Role="Receipt" EntitySet="Receipts" />
+    </AssociationSet>
+    <AssociationSet Name="ProductReceiptItem" Association="MobnationEntities.Store.ProductReceiptItem">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ReceiptItem" EntitySet="ReceiptItems" />
+    </AssociationSet>
+    <AssociationSet Name="ReceiptReceiptItem" Association="MobnationEntities.Store.ReceiptReceiptItem">
+      <End Role="Receipt" EntitySet="Receipts" />
+      <End Role="ReceiptItem" EntitySet="ReceiptItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProfileTitle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Profile_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Receipts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecepientName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RecepientEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SignatureData" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Profile_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ReceiptItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+    <Property Name="Receipt_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProductProfile">
+    <End Role="Products" Type="MobnationEntities.Store.Products" Multiplicity="*" />
+    <End Role="Profile" Type="MobnationEntities.Store.Profiles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Profile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfileReceipt">
+    <End Role="Profile" Type="MobnationEntities.Store.Profiles" Multiplicity="0..1" />
+    <End Role="Receipt" Type="MobnationEntities.Store.Receipts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Receipt">
+        <PropertyRef Name="Profile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductReceiptItem">
+    <End Role="Product" Type="MobnationEntities.Store.Products" Multiplicity="1" />
+    <End Role="ReceiptItem" Type="MobnationEntities.Store.ReceiptItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReceiptItem">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ReceiptReceiptItem">
+    <End Role="Receipt" Type="MobnationEntities.Store.Receipts" Multiplicity="1" />
+    <End Role="ReceiptItem" Type="MobnationEntities.Store.ReceiptItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Receipt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReceiptItem">
+        <PropertyRef Name="Receipt_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MobnationEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="MobnationEntitiesContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Profiles" EntityType="MobnationEntities.Profile" />
+          <EntitySet Name="Products" EntityType="MobnationEntities.Product" />
+          <EntitySet Name="Receipts" EntityType="MobnationEntities.Receipt" />
+          <AssociationSet Name="ProductProfile" Association="MobnationEntities.ProductProfile">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Profile" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="ProfileReceipt" Association="MobnationEntities.ProfileReceipt">
+            <End Role="Profile" EntitySet="Profiles" />
+            <End Role="Receipt" EntitySet="Receipts" />
+          </AssociationSet>
+          <EntitySet Name="ReceiptItems" EntityType="MobnationEntities.ReceiptItem" />
+          <AssociationSet Name="ProductReceiptItem" Association="MobnationEntities.ProductReceiptItem">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ReceiptItem" EntitySet="ReceiptItems" />
+          </AssociationSet>
+          <AssociationSet Name="ReceiptReceiptItem" Association="MobnationEntities.ReceiptReceiptItem">
+            <End Role="Receipt" EntitySet="Receipts" />
+            <End Role="ReceiptItem" EntitySet="ReceiptItems" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProfileName" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="String" Name="Data" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="MobnationEntities.ProductProfile" FromRole="Profile" ToRole="Products" />
+          <NavigationProperty Name="Receipts" Relationship="MobnationEntities.ProfileReceipt" FromRole="Profile" ToRole="Receipt" />
+          <Property Type="String" Name="ProfileTitle" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Profile" Relationship="MobnationEntities.ProductProfile" FromRole="Products" ToRole="Profile" />
+          <Property Type="String" Name="ProductName" Nullable="false" />
+          <Property Type="String" Name="Data" Nullable="false" />
+          <NavigationProperty Name="ReceiptItems" Relationship="MobnationEntities.ProductReceiptItem" FromRole="Product" ToRole="ReceiptItem" />
+          <Property Type="String" Name="ProductTitle" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Profile" Relationship="MobnationEntities.ProfileReceipt" FromRole="Receipt" ToRole="Profile" />
+          <NavigationProperty Name="ReceiptItems" Relationship="MobnationEntities.ReceiptReceiptItem" FromRole="Receipt" ToRole="ReceiptItem" />
+          <Property Type="String" Name="RecepientName" Nullable="false" />
+          <Property Type="String" Name="RecepientEmail" Nullable="false" />
+          <Property Type="String" Name="SignatureData" Nullable="false" />
+          <Property Type="String" Name="Notes" Nullable="false" />
+        </EntityType>
+        <Association Name="ProductProfile">
+          <End Type="MobnationEntities.Product" Role="Products" Multiplicity="*" />
+          <End Type="MobnationEntities.Profile" Role="Profile" Multiplicity="0..1" />
+        </Association>
+        <Association Name="ProfileReceipt">
+          <End Type="MobnationEntities.Profile" Role="Profile" Multiplicity="0..1" />
+          <End Type="MobnationEntities.Receipt" Role="Receipt" Multiplicity="*" />
+        </Association>
+        <EntityType Name="ReceiptItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Product" Relationship="MobnationEntities.ProductReceiptItem" FromRole="ReceiptItem" ToRole="Product" />
+          <NavigationProperty Name="Receipt" Relationship="MobnationEntities.ReceiptReceiptItem" FromRole="ReceiptItem" ToRole="Receipt" />
+          <Property Type="String" Name="Quantity" Nullable="false" />
+        </EntityType>
+        <Association Name="ProductReceiptItem">
+          <End Type="MobnationEntities.Product" Role="Product" Multiplicity="1" />
+          <End Type="MobnationEntities.ReceiptItem" Role="ReceiptItem" Multiplicity="*" />
+        </Association>
+        <Association Name="ReceiptReceiptItem">
+          <End Type="MobnationEntities.Receipt" Role="Receipt" Multiplicity="1" />
+          <End Type="MobnationEntities.ReceiptItem" Role="ReceiptItem" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MobnationEntitiesStoreContainer" CdmEntityContainer="MobnationEntitiesContainer">
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="IsTypeOf(MobnationEntities.Profile)">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProfileName" ColumnName="ProfileName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="ProfileTitle" ColumnName="ProfileTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(MobnationEntities.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receipts">
+      <EntityTypeMapping TypeName="IsTypeOf(MobnationEntities.Receipt)">
+        <MappingFragment StoreEntitySet="Receipts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RecepientName" ColumnName="RecepientName" />
+          <ScalarProperty Name="RecepientEmail" ColumnName="RecepientEmail" />
+          <ScalarProperty Name="SignatureData" ColumnName="SignatureData" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiptItems">
+      <EntityTypeMapping TypeName="IsTypeOf(MobnationEntities.ReceiptItem)">
+        <MappingFragment StoreEntitySet="ReceiptItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProductProfile" TypeName="MobnationEntities.ProductProfile" StoreEntitySet="Products">
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="Id" ColumnName="Profile_Id" />
+      </EndProperty>
+      <EndProperty Name="Products">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Profile_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfileReceipt" TypeName="MobnationEntities.ProfileReceipt" StoreEntitySet="Receipts">
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="Id" ColumnName="Profile_Id" />
+      </EndProperty>
+      <EndProperty Name="Receipt">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Profile_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductReceiptItem" TypeName="MobnationEntities.ProductReceiptItem" StoreEntitySet="ReceiptItems">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Product_Id" />
+      </EndProperty>
+      <EndProperty Name="ReceiptItem">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ReceiptReceiptItem" TypeName="MobnationEntities.ReceiptReceiptItem" StoreEntitySet="ReceiptItems">
+      <EndProperty Name="Receipt">
+        <ScalarProperty Name="Id" ColumnName="Receipt_Id" />
+      </EndProperty>
+      <EndProperty Name="ReceiptItem">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

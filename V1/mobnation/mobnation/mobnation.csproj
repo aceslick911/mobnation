@@ -55,6 +55,8 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -164,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JasmineController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -171,9 +174,41 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MobnationEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobnationEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobnationEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobnationEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobnationEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MobnationEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>MobnationEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs">
+      <DependentUpon>MobnationEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Receipt.cs">
+      <DependentUpon>MobnationEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReceiptItem.cs">
+      <DependentUpon>MobnationEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\System.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\images\mobnation-hand-medium.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -209,6 +244,12 @@
     <Content Include="Content\styles\profile.css">
       <DependentUpon>profile.less</DependentUpon>
     </Content>
+    <Content Include="Models\MobnationEntities.edmx.sql" />
+    <Content Include="Models\T4TS.d.ts">
+      <DependentUpon>T4TS.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
     <Content Include="Scripts\dropzone.js" />
     <Content Include="Scripts\signature-pad\assets\journal.eot" />
     <Content Include="Scripts\signature-pad\assets\journal.ttf" />
@@ -242,6 +283,28 @@
     <Content Include="Content\styles\profile.less" />
     <Content Include="Content\styles\home.less" />
     <Content Include="Content\styles\common.less" />
+    <EntityDeploy Include="Models\MobnationEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MobnationEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MobnationEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MobnationEntities.edmx</DependentUpon>
+      <LastGenOutput>MobnationEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MobnationEntities.edmx.diagram">
+      <DependentUpon>MobnationEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MobnationEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MobnationEntities.edmx</DependentUpon>
+      <LastGenOutput>MobnationEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\T4TS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>T4TS.d.ts</LastGenOutput>
+    </Content>
+    <Content Include="Models\T4TS.tt.settings.t4" />
     <None Include="Properties\PublishProfiles\mobnation.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\crossroads.js" />
@@ -307,10 +370,8 @@
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
     <Folder Include="Images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

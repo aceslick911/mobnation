@@ -11,7 +11,7 @@ namespace mobnation.Tests.Controllers
     {
 
         [TestMethod]
-        public void Post()
+        public void TestReceipt()
         {
 
             var error = "";
